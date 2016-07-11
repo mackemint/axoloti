@@ -1,0 +1,155 @@
+<patch-1.0>
+   <obj type="dyn/comp" sha="cda5bd26e9fc97319943991cca7cf2da17496790" uuid="2d62720d6a597c586936be74ebb1e1c449772636" name="comp_1" x="770" y="56">
+      <params>
+         <frac32.u.map name="tresh" value="2.5"/>
+         <frac32.u.map name="ratio" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/outconfig" sha="b005d810ffcd8fd1b07342bb194377d6d94e64e2" uuid="f4fa7e864a5446fc3e4527e5ef6732f283a9d43c" name="outconfig_1" x="966" y="84">
+      <params/>
+      <attribs>
+         <combo attributeName="headphones" selection="-30dB"/>
+      </attribs>
+   </obj>
+   <obj type="env/follower" sha="8074c80ff135ec9b250e19c7a6671f8369b45ae4" name="follower_1" x="658" y="112">
+      <params/>
+      <attribs>
+         <combo attributeName="time" selection="1.3ms"/>
+      </attribs>
+   </obj>
+   <obj type="./noisegate" uuid="736f1aeaa8f1736a63bdfe227dc810469aae3bee" name="noisegate_1" x="476" y="140">
+      <params>
+         <frac32.u.map name="Pre" value="36.5"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.5"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="13.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/smooth2" sha="7a49483fff392fd1c10fb15f40dfc8f92f942192" name="smooth2_1" x="896" y="140">
+      <params>
+         <frac32.u.map name="risetime" onParent="true" value="0.0"/>
+         <frac32.u.map name="falltime" onParent="true" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" sha="c27566f972d15f25252f61b5cff014a3edce9706" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1120" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./EQ4_bass" uuid="5feea03d249b50518e70afacf05b1c6147e56d7a" name="EQ4_bass_1" x="700" y="280">
+      <params>
+         <bool32.tgl name="Bypass_" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="filter/lp m" sha="c2224dc682842eae1af4496f3f94a6afc1525ee4" uuid="1aa1bc51da479ed92429af700591f9d7b9f45f22" name="lp_1" x="882" y="294">
+      <params>
+         <frac32.s.map name="pitch" value="-7.0"/>
+         <frac32.u.map name="reso" value="20.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/in stereo" sha="1acaaf87659f6c9d0833a6def4dbd5d0c3edca4d" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="336" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./noisegate" uuid="3e4245b64c1ca1a9b5baec47b6d2c57f5b2abecc" name="noisegate_2" x="476" y="420">
+      <params>
+         <frac32.u.map name="Pre" value="36.0"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.0"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="13.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/chart b" sha="9af68e71368a6c4e7c4553b8bfd762831554a32e" uuid="d2bdf496f96ee521628490a038411210fbe29b15" name="chart_1" x="1050" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/&gt;" sha="99f01ed095dd5744b9271051ea6d4ea12ddaef84" uuid="8112942c245dbc2edf7d7de122fe83b0dcd0a391" name="&gt;_1" x="798" y="504">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="Threshold" x="700" y="518">
+      <params>
+         <frac32.u.map name="value" onParent="true" value="53.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="env/ahd lin m" sha="1bff4be3aeae590d80327085f5f7c771667d8938" uuid="f9b46834ce96425064b4ed7f53ad8b91ea1ac0ef" name="a/d" x="896" y="532">
+      <params>
+         <frac32.s.map name="a" onParent="true" value="-64.0"/>
+         <frac32.s.map name="d" onParent="true" value="17.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="in_1" outlet="left"/>
+         <dest obj="noisegate_1" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="in_1" outlet="right"/>
+         <dest obj="noisegate_2" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="noisegate_1" outlet="Output"/>
+         <dest obj="EQ4_bass_1" inlet="InL"/>
+      </net>
+      <net>
+         <source obj="noisegate_2" outlet="Output"/>
+         <dest obj="EQ4_bass_1" inlet="InR"/>
+      </net>
+      <net>
+         <source obj="follower_1" outlet="amp"/>
+         <dest obj="comp_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="EQ4_bass_1" outlet="OutL"/>
+         <dest obj="follower_1" inlet="in"/>
+         <dest obj="lp_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="lp_1" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="comp_1" outlet="out"/>
+         <dest obj="smooth2_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="a/d" outlet="env"/>
+         <dest obj="chart_1" inlet="in"/>
+         <dest obj="lp_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="Threshold" outlet="out"/>
+         <dest obj="&gt;_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="&gt;_1" outlet="out"/>
+         <dest obj="a/d" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="smooth2_1" outlet="out"/>
+         <dest obj="&gt;_1" inlet="in1"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>320</x>
+      <y>22</y>
+      <width>960</width>
+      <height>774</height>
+   </windowPos>
+</patch-1.0>

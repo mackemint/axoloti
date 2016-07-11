@@ -1,0 +1,134 @@
+<patch-1.0>
+   <obj type="patch/inlet f" sha="8e69e1ab7ccd8afaefdc23146c50149809b64955" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Attack" x="616" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*" sha="15b8ed7ee3ac22eae7e9b5bda4a1d1b7dbd9ba58" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_2" x="350" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" sha="8e69e1ab7ccd8afaefdc23146c50149809b64955" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Decay" x="616" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/muls 4" sha="a2859519a2c4a153711fdaa40f869716f014e629" uuid="cb650a18eecbf0e9ad9afec6834aa0f478ffddf" name="muls_1" x="462" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="env/ahd lin m" sha="1bff4be3aeae590d80327085f5f7c771667d8938" uuid="f9b46834ce96425064b4ed7f53ad8b91ea1ac0ef" name="ahd_1" x="882" y="266">
+      <params>
+         <frac32.s.map name="a" value="0.0"/>
+         <frac32.s.map name="d" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet a" sha="709c10aa648c6e5a3c00da4b5dd238899a7c109c" uuid="b577fe41e0a6bc7b5502ce33cb8a3129e2e28ee5" name="SigIn" x="238" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" sha="10c5b6d774e8c972b6bb863dad23e83034e0990f" uuid="539c246f4c360ac476e128cfbfa84348fb7f7e73" name="demux_1" x="1246" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/&gt;" sha="99f01ed095dd5744b9271051ea6d4ea12ddaef84" uuid="8112942c245dbc2edf7d7de122fe83b0dcd0a391" name="==_1" x="644" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" sha="8e69e1ab7ccd8afaefdc23146c50149809b64955" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Threshold" x="238" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" sha="f5742cc9eee76fae90a4e570c34596dd327b6c28" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Bypass" x="1148" y="434">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/*" sha="15b8ed7ee3ac22eae7e9b5bda4a1d1b7dbd9ba58" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_1" x="1064" y="462">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet a" sha="9e7e04867e1d37837b0924c9bf18c44ac68602e6" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="Audio" x="1428" y="546">
+      <params/>
+      <attribs/>
+   </obj>
+      <obj type="env/ahd lin m" sha="1bff4be3aeae590d80327085f5f7c771667d8938" uuid="f9b46834ce96425064b4ed7f53ad8b91ea1ac0ef" name="ahd_1" x="882" y="266">
+      <params>
+         <frac32.s.map name="a" value="0.0"/>
+         <frac32.s.map name="d" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="SigIn" outlet="inlet"/>
+         <dest obj="*_1" inlet="b"/>
+         <dest obj="*_2" inlet="b"/>
+         <dest obj="demux_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="Threshold" outlet="inlet"/>
+         <dest obj="==_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="==_1" outlet="out"/>
+         <dest obj="ahd_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="ahd_1" outlet="env"/>
+         <dest obj="*_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="Attack" outlet="inlet"/>
+         <dest obj="ahd_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="Decay" outlet="inlet"/>
+         <dest obj="ahd_1" inlet="d"/>
+      </net>
+      <net>
+         <source obj="*_2" outlet="result"/>
+         <dest obj="muls_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="muls_1" outlet="out"/>
+         <dest obj="==_1" inlet="in1"/>
+      </net>
+         <obj type="env/ahd lin m" sha="1bff4be3aeae590d80327085f5f7c771667d8938" uuid="f9b46834ce96425064b4ed7f53ad8b91ea1ac0ef" name="ahd_1" x="882" y="266">
+      <params>
+         <frac32.s.map name="a" value="0.0"/>
+         <frac32.s.map name="d" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+      <net>
+         <source obj="Bypass" outlet="o"/>
+         <dest obj="demux_1" inlet="s"/>
+      </net>
+      <net>
+         <source obj="demux_1" outlet="o"/>
+         <dest obj="Audio" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="demux_1" inlet="i1"/>
+      </net>
+         <obj type="env/ahd lin m" sha="1bff4be3aeae590d80327085f5f7c771667d8938" uuid="f9b46834ce96425064b4ed7f53ad8b91ea1ac0ef" name="ahd_1" x="882" y="266">
+      <params>
+         <frac32.s.map name="a" value="0.0"/>
+         <frac32.s.map name="d" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>0</x>
+      <y>22</y>
+      <width>1920</width>
+      <height>1054</height>
+   </windowPos>
+</patch-1.0>

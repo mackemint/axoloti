@@ -1,0 +1,74 @@
+<patch-1.0>
+   <obj type="./noisegate" uuid="736f1aeaa8f1736a63bdfe227dc810469aae3bee" name="noisegate_1" x="476" y="140">
+      <params>
+         <frac32.u.map name="Pre" value="20.0"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.5"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="13.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" sha="c27566f972d15f25252f61b5cff014a3edce9706" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1120" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./EQ4_bass" uuid="5feea03d249b50518e70afacf05b1c6147e56d7a" name="EQ4_bass_1" x="700" y="280">
+      <params>
+         <bool32.tgl name="Bypass_" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/in stereo" sha="1acaaf87659f6c9d0833a6def4dbd5d0c3edca4d" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="336" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./noisegate" uuid="3e4245b64c1ca1a9b5baec47b6d2c57f5b2abecc" name="noisegate_2" x="476" y="420">
+      <params>
+         <frac32.u.map name="Pre" value="20.0"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.0"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="13.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="in_1" outlet="left"/>
+         <dest obj="noisegate_1" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="in_1" outlet="right"/>
+         <dest obj="noisegate_2" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="noisegate_1" outlet="Output"/>
+         <dest obj="EQ4_bass_1" inlet="InL"/>
+      </net>
+      <net>
+         <source obj="noisegate_2" outlet="Output"/>
+         <dest obj="EQ4_bass_1" inlet="InR"/>
+      </net>
+      <net>
+         <source obj="EQ4_bass_1" outlet="OutL"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="EQ4_bass_1" outlet="OutR"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>960</x>
+      <y>22</y>
+      <width>960</width>
+      <height>1054</height>
+   </windowPos>
+</patch-1.0>

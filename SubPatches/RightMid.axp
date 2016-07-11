@@ -1,0 +1,127 @@
+<patch-1.0>
+   <obj type="mix/mix 1 g" sha="60cd6c5fad7f3f3985ccf64c7d05086e1b2f5499" uuid="e6982841c1bf323ee2062a4b6cc2737adafbd668" name="mix_2" x="322" y="28">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" sha="9f8cb68e327acfaa43539be73ff97faab497ad45" uuid="faedbea4612d9bd3644d6d3bf31946d848a70e19" name="+_1" x="168" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" sha="10c5b6d774e8c972b6bb863dad23e83034e0990f" uuid="539c246f4c360ac476e128cfbfa84348fb7f7e73" name="demux_1" x="686" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" sha="c27566f972d15f25252f61b5cff014a3edce9706" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="770" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/in stereo" sha="1acaaf87659f6c9d0833a6def4dbd5d0c3edca4d" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="28" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 3" sha="5d346e1293f2b7a8bf6bf2542e88a629e67a201e" uuid="8be16f2156012a4a8974804178cece51555f272b" name="mix_1" x="532" y="112">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+         <frac32.u.map name="gain2" value="33.0"/>
+         <frac32.u.map name="gain3" value="33.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" sha="10c5b6d774e8c972b6bb863dad23e83034e0990f" uuid="539c246f4c360ac476e128cfbfa84348fb7f7e73" name="demux_2" x="686" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" sha="f5742cc9eee76fae90a4e570c34596dd327b6c28" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Bypass_" x="630" y="224">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 3" sha="5d346e1293f2b7a8bf6bf2542e88a629e67a201e" uuid="8be16f2156012a4a8974804178cece51555f272b" name="M L R" x="420" y="294">
+      <params>
+         <frac32.u.map name="gain1" value="0.0"/>
+         <frac32.u.map name="gain2" value="33.0"/>
+         <frac32.u.map name="gain3" value="33.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" sha="9f8cb68e327acfaa43539be73ff97faab497ad45" uuid="faedbea4612d9bd3644d6d3bf31946d848a70e19" name="L" x="322" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 1 g" sha="60cd6c5fad7f3f3985ccf64c7d05086e1b2f5499" uuid="e6982841c1bf323ee2062a4b6cc2737adafbd668" name="mix_3" x="140" y="322">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/inv" sha="3e213fdc5d4220476cf173e433160725802df77f" uuid="7f4c6cf4dcf79f9b0aa81c2eaf540405875714a3" name="inv_1" x="252" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="in_1" outlet="left"/>
+         <dest obj="+_1" inlet="in1"/>
+         <dest obj="L" inlet="in1"/>
+         <dest obj="demux_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="in_1" outlet="right"/>
+         <dest obj="+_1" inlet="in2"/>
+         <dest obj="demux_2" inlet="i2"/>
+         <dest obj="mix_3" inlet="in1"/>
+         <dest obj="inv_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Bypass_" outlet="o"/>
+         <dest obj="demux_2" inlet="s"/>
+         <dest obj="demux_1" inlet="s"/>
+      </net>
+      <net>
+         <source obj="demux_2" outlet="o"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="demux_1" outlet="o"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="demux_1" inlet="i1"/>
+         <dest obj="demux_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="M L R" outlet="out"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="L" outlet="out"/>
+         <dest obj="M L R" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="inv_1" outlet="out"/>
+         <dest obj="L" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="M L R" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="mix_2" inlet="in1"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>98</x>
+      <y>79</y>
+      <width>1181</width>
+      <height>614</height>
+   </windowPos>
+</patch-1.0>

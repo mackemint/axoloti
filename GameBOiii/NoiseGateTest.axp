@@ -1,0 +1,88 @@
+<patch-1.0>
+   <obj type="./noisegate" uuid="736f1aeaa8f1736a63bdfe227dc810469aae3bee" name="noisegate_1" x="770" y="168">
+      <params>
+         <frac32.u.map name="Pre" value="31.0"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.5"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="4.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="./gbhpcompeq" uuid="388821137b10d1cfecde36e9ed566b55ff4385fe" name="gbhpcompeq_1" x="952" y="238">
+      <params>
+         <frac32.u.map name="CompL:comp_1:tresh" value="3.0"/>
+         <frac32.u.map name="CompL:comp_1:ratio" value="17.0"/>
+         <frac32.s.map name="HPL:pitch" value="-48.0"/>
+         <int32 name="EQL:lowmid" value="-1"/>
+         <int32 name="EQL:mid" value="-2"/>
+         <int32 name="EQL:highmid" value="1"/>
+         <int32 name="EQL:high" value="2"/>
+         <bool32.tgl name="Bypass" value="1"/>
+         <frac32.s.map name="HPR:pitch" value="-49.0"/>
+         <frac32.u.map name="CompR:comp_1:tresh" value="3.0"/>
+         <frac32.u.map name="CompR:comp_1:ratio" value="17.0"/>
+         <int32 name="EQR:lowmid" value="-1"/>
+         <int32 name="EQR:mid" value="-2"/>
+         <int32 name="EQR:highmid" value="1"/>
+         <int32 name="EQR:high" value="2"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" sha="c27566f972d15f25252f61b5cff014a3edce9706" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1120" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/in stereo" sha="1acaaf87659f6c9d0833a6def4dbd5d0c3edca4d" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="630" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./noisegate" uuid="3e4245b64c1ca1a9b5baec47b6d2c57f5b2abecc" name="noisegate_2" x="770" y="448">
+      <params>
+         <frac32.u.map name="Pre" value="31.0"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.0"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="4.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="in_1" outlet="left"/>
+         <dest obj="noisegate_1" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="noisegate_1" outlet="Output"/>
+         <dest obj="gbhpcompeq_1" inlet="AudioInL"/>
+      </net>
+      <net>
+         <source obj="in_1" outlet="right"/>
+         <dest obj="noisegate_2" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="noisegate_2" outlet="Output"/>
+         <dest obj="gbhpcompeq_1" inlet="AudioInR"/>
+      </net>
+      <net>
+         <source obj="gbhpcompeq_1" outlet="OutL"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="gbhpcompeq_1" outlet="OutR"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>960</x>
+      <y>22</y>
+      <width>960</width>
+      <height>1054</height>
+   </windowPos>
+</patch-1.0>

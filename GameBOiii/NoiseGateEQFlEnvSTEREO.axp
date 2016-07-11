@@ -1,0 +1,368 @@
+<patch-1.0>
+   <obj type="./FilterEnvelope" uuid="6de02a90afe06ab50c7ba81d44cb05b629063c6f" name="FilterEnvelope_1" x="434" y="70">
+      <params>
+         <frac32.s.map name="Filter:pitch" MidiCC="1" value="-44.0"/>
+         <frac32.u.map name="Filter:reso" value="51.5"/>
+         <frac32.u.map name="ModAmt" MidiCC="2" value="63.0"/>
+         <frac32.u.map name="comp_1:tresh" MidiCC="3" value="1.0"/>
+         <frac32.s.map name="EnvAD:a" value="-64.0"/>
+         <frac32.s.map name="EnvAD:d" MidiCC="4" value="18.0"/>
+         <frac32.u.map name="dial_1" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/outconfig" sha="b005d810ffcd8fd1b07342bb194377d6d94e64e2" uuid="f4fa7e864a5446fc3e4527e5ef6732f283a9d43c" name="outconfig_1" x="658" y="70">
+      <params/>
+      <attribs>
+         <combo attributeName="headphones" selection="-36dB"/>
+      </attribs>
+   </obj>
+   <obj type="./noisegate" uuid="736f1aeaa8f1736a63bdfe227dc810469aae3bee" name="noisegate_1" x="112" y="140">
+      <params>
+         <frac32.u.map name="Pre" value="64.0"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.5"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="7.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/chart b" sha="9af68e71368a6c4e7c4553b8bfd762831554a32e" uuid="d2bdf496f96ee521628490a038411210fbe29b15" name="chart_1" x="630" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/button1" sha="2d8a8388aa8ae748ba64967dc22e268e11146941" uuid="2f4fbacf3969a3a1ff9d23899566430051cb01f" name="button1_1" x="1162" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/out/led1" sha="52567d6da1edf8d777dd9c850ab30dc561d7909d" uuid="c6679540460d64e2e71760e61cb82fac227e2764" name="led1_green" x="1302" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/button2" sha="8c9d831d07ff0018a5b79cf315954ab95fe62c44" uuid="e844813dc6e022223cd10d8beb29b62732231867" name="button1_2" x="868" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/flipflop toggle" sha="3e483f67f78cab4aecc6bc5cf4e105e481839660" uuid="195e489e5fc3d275944b0de56c7a91c8641ea22a" name="flipflop_1" x="966" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" sha="10c5b6d774e8c972b6bb863dad23e83034e0990f" uuid="539c246f4c360ac476e128cfbfa84348fb7f7e73" name="demux_1" x="714" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/out/led2" sha="9acb691d329dbe3ba7f15faf537f6624089f3172" uuid="3d7a4c75d1f9901181a17ba5de752782de911803" name="led2_red" x="1148" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./EQ4_bass" uuid="5feea03d249b50518e70afacf05b1c6147e56d7a" name="EQ4_bass_1" x="294" y="266">
+      <params>
+         <bool32.tgl name="Bypass_" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/in stereo" sha="1acaaf87659f6c9d0833a6def4dbd5d0c3edca4d" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="14" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" sha="c27566f972d15f25252f61b5cff014a3edce9706" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="882" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" sha="f5742cc9eee76fae90a4e570c34596dd327b6c28" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Bypass_" x="644" y="308">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/outconfig" sha="b005d810ffcd8fd1b07342bb194377d6d94e64e2" uuid="f4fa7e864a5446fc3e4527e5ef6732f283a9d43c" name="outconfig_2" x="1162" y="336">
+      <params/>
+      <attribs>
+         <combo attributeName="headphones" selection="-18dB"/>
+      </attribs>
+   </obj>
+   <obj type="mux/mux 2" sha="10c5b6d774e8c972b6bb863dad23e83034e0990f" uuid="539c246f4c360ac476e128cfbfa84348fb7f7e73" name="demux_2" x="714" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./noisegate" uuid="3e4245b64c1ca1a9b5baec47b6d2c57f5b2abecc" name="noisegate_2" x="112" y="406">
+      <params>
+         <frac32.u.map name="Pre" value="64.0"/>
+         <frac32.u.map name="smooth2_1:risetime" value="0.0"/>
+         <frac32.u.map name="smooth2_1:falltime" value="0.0"/>
+         <frac32.s.map name="a/d:a" value="-64.0"/>
+         <frac32.s.map name="a/d:d" value="31.0"/>
+         <frac32.u.map name="Threshold" value="7.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="./FilterEnvelope" uuid="6de02a90afe06ab50c7ba81d44cb05b629063c6f" name="FilterEnvelope_2" x="434" y="420">
+      <params>
+         <frac32.s.map name="Filter:pitch" MidiCC="1" value="-44.0"/>
+         <frac32.u.map name="Filter:reso" value="54.0"/>
+         <frac32.u.map name="ModAmt" MidiCC="2" value="63.0"/>
+         <frac32.u.map name="comp_1:tresh" MidiCC="3" value="1.0"/>
+         <frac32.s.map name="EnvAD:a" value="-64.0"/>
+         <frac32.s.map name="EnvAD:d" MidiCC="4" value="18.0"/>
+         <frac32.u.map name="dial_1" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/analog" sha="e3ff2158ab5c372cfc7d9dddc5d64d55cd90c257" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_5" x="896" y="490">
+      <params/>
+      <attribs>
+         <combo attributeName="channel" selection="PC0 (ADC1_IN10)"/>
+      </attribs>
+   </obj>
+   <obj type="./AD_to_int" uuid="cedf68246215ffd05c008064e11e9219c2e6b605" name="AD_to_int_1" x="1036" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./S_H_LATCH" uuid="8a5a62a6cc837ea1ad7e938a815b9612bd8bf57b" name="S_H_LATCH_2" x="1176" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="LFilter Pitch" x="1386" y="490">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="1"/>
+      </attribs>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="cc_6" x="1526" y="490">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="5"/>
+      </attribs>
+   </obj>
+   <obj type="gpio/in/analog" sha="e3ff2158ab5c372cfc7d9dddc5d64d55cd90c257" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_2" x="896" y="560">
+      <params/>
+      <attribs>
+         <combo attributeName="channel" selection="PC1 (ADC1_IN11)"/>
+      </attribs>
+   </obj>
+   <obj type="./AD_to_int" uuid="cedf68246215ffd05c008064e11e9219c2e6b605" name="AD_to_int_2" x="1036" y="560">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./S_H_LATCH" uuid="8a5a62a6cc837ea1ad7e938a815b9612bd8bf57b" name="S_H_LATCH_1" x="1176" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="LFilter ModAmt" x="1386" y="574">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="2"/>
+      </attribs>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="cc_7" x="1526" y="574">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="6"/>
+      </attribs>
+   </obj>
+   <obj type="gpio/in/analog" sha="e3ff2158ab5c372cfc7d9dddc5d64d55cd90c257" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="896" y="630">
+      <params/>
+      <attribs>
+         <combo attributeName="channel" selection="PC2 (ADC1_IN12)"/>
+      </attribs>
+   </obj>
+   <obj type="./AD_to_int" uuid="cedf68246215ffd05c008064e11e9219c2e6b605" name="AD_to_int_3" x="1036" y="630">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./S_H_LATCH" uuid="8a5a62a6cc837ea1ad7e938a815b9612bd8bf57b" name="S_H_LATCH_3" x="1162" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="cc_8" x="1526" y="644">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="7"/>
+      </attribs>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="RFilter Pitch" x="1386" y="658">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="3"/>
+      </attribs>
+   </obj>
+   <obj type="gpio/in/analog" sha="e3ff2158ab5c372cfc7d9dddc5d64d55cd90c257" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_4" x="896" y="700">
+      <params/>
+      <attribs>
+         <combo attributeName="channel" selection="PC3 (ADC1_IN13)"/>
+      </attribs>
+   </obj>
+   <obj type="./AD_to_int" uuid="cedf68246215ffd05c008064e11e9219c2e6b605" name="AD_to_int_4" x="1036" y="700">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="RFilter ModAmt" x="1386" y="714">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="4"/>
+      </attribs>
+   </obj>
+   <obj type="midi/intern/cc thin" sha="eb910d55a1e9fe0d21c421a940953cee5417c6a3" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="cc_9" x="1526" y="714">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="cc" value="8"/>
+      </attribs>
+   </obj>
+   <obj type="./S_H_LATCH" uuid="8a5a62a6cc837ea1ad7e938a815b9612bd8bf57b" name="S_H_LATCH_4" x="1162" y="728">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="in_1" outlet="left"/>
+         <dest obj="noisegate_1" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="in_1" outlet="right"/>
+         <dest obj="noisegate_2" inlet="Input"/>
+      </net>
+      <net>
+         <source obj="noisegate_1" outlet="Output"/>
+         <dest obj="EQ4_bass_1" inlet="InL"/>
+      </net>
+      <net>
+         <source obj="noisegate_2" outlet="Output"/>
+         <dest obj="EQ4_bass_1" inlet="InR"/>
+      </net>
+      <net>
+         <source obj="EQ4_bass_1" outlet="OutL"/>
+         <dest obj="FilterEnvelope_1" inlet="AudioIn"/>
+         <dest obj="demux_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="EQ4_bass_1" outlet="OutR"/>
+         <dest obj="FilterEnvelope_2" inlet="AudioIn"/>
+         <dest obj="demux_2" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="FilterEnvelope_2" outlet="AudioOut"/>
+         <dest obj="demux_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="FilterEnvelope_1" outlet="AudioOut"/>
+         <dest obj="demux_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="analog_5" outlet="out"/>
+         <dest obj="AD_to_int_1" inlet="AD_in"/>
+      </net>
+      <net>
+         <source obj="analog_4" outlet="out"/>
+         <dest obj="AD_to_int_4" inlet="AD_in"/>
+      </net>
+      <net>
+         <source obj="analog_3" outlet="out"/>
+         <dest obj="AD_to_int_3" inlet="AD_in"/>
+      </net>
+      <net>
+         <source obj="analog_2" outlet="out"/>
+         <dest obj="AD_to_int_2" inlet="AD_in"/>
+      </net>
+      <net>
+         <source obj="AD_to_int_2" outlet="Out"/>
+         <dest obj="S_H_LATCH_1" inlet="IntIn"/>
+      </net>
+      <net>
+         <source obj="Bypass_" outlet="o"/>
+         <dest obj="demux_2" inlet="s"/>
+         <dest obj="demux_1" inlet="s"/>
+      </net>
+      <net>
+         <source obj="demux_1" outlet="o"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="demux_2" outlet="o"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="button1_2" outlet="out"/>
+         <dest obj="flipflop_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="flipflop_1" outlet="o"/>
+         <dest obj="S_H_LATCH_1" inlet="ToggleIn"/>
+         <dest obj="S_H_LATCH_2" inlet="ToggleIn"/>
+         <dest obj="S_H_LATCH_3" inlet="ToggleIn"/>
+         <dest obj="S_H_LATCH_4" inlet="ToggleIn"/>
+         <dest obj="led2_red" inlet="in"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_1" outlet="Out1"/>
+         <dest obj="LFilter ModAmt" inlet="v"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_1" outlet="Out2"/>
+         <dest obj="cc_7" inlet="v"/>
+      </net>
+      <net>
+         <source obj="AD_to_int_1" outlet="Out"/>
+         <dest obj="S_H_LATCH_2" inlet="IntIn"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_2" outlet="Out1"/>
+         <dest obj="LFilter Pitch" inlet="v"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_2" outlet="Out2"/>
+         <dest obj="cc_6" inlet="v"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_3" outlet="Out1"/>
+         <dest obj="RFilter Pitch" inlet="v"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_3" outlet="Out2"/>
+         <dest obj="cc_8" inlet="v"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_4" outlet="Out1"/>
+         <dest obj="RFilter ModAmt" inlet="v"/>
+      </net>
+      <net>
+         <source obj="S_H_LATCH_4" outlet="Out2"/>
+         <dest obj="cc_9" inlet="v"/>
+      </net>
+      <net>
+         <source obj="AD_to_int_3" outlet="Out"/>
+         <dest obj="S_H_LATCH_3" inlet="IntIn"/>
+      </net>
+      <net>
+         <source obj="AD_to_int_4" outlet="Out"/>
+         <dest obj="S_H_LATCH_4" inlet="IntIn"/>
+      </net>
+      <net>
+         <source obj="FilterEnvelope_1" outlet="AudioOut_"/>
+         <dest obj="chart_1" inlet="in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>8</NPresets>
+      <NPresetEntries>32</NPresetEntries>
+      <NModulationSources>8</NModulationSources>
+      <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>0</x>
+      <y>22</y>
+      <width>1280</width>
+      <height>774</height>
+   </windowPos>
+</patch-1.0>
