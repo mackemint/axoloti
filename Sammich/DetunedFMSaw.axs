@@ -1,25 +1,16 @@
-<patch-1.0>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="adsr_1" x="672" y="28">
+<patch-1.0 appVersion="1.0.10">
+   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="adsr_2" x="994" y="56">
       <params>
-         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="a" value="-26.0"/>
          <frac32.s.map name="d" value="0.0"/>
-         <frac32.u.map name="s" value="48.0"/>
-         <frac32.s.map name="r" value="0.0"/>
+         <frac32.u.map name="s" value="48.5"/>
+         <frac32.s.map name="r" value="33.0"/>
       </params>
       <attribs/>
    </obj>
    <obj type="osc/phasor compl" sha="c95d1332c224aad738fb4504cb00706af8221028" uuid="11940ece0e29f3fae0d3c8e1fdabd63cacac5b48" name="saw_1" x="434" y="210">
       <params>
          <frac32.s.map name="pitch" value="-11.999999523162842"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="adsr_2" x="672" y="224">
-      <params>
-         <frac32.s.map name="a" value="-64.0"/>
-         <frac32.s.map name="d" value="0.0"/>
-         <frac32.u.map name="s" value="48.5"/>
-         <frac32.s.map name="r" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -44,12 +35,11 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="98" y="280" text="In Ch4"/>
-   <obj type="midi/in/keyb zone ch" sha="f0f2b7bf2049172dd9ece848a6b39f624bf94358" uuid="7e53172c72a011c3a550746e7e5a43c90e5bc3b4" name="keyb_4" x="98" y="294">
+   <obj type="midi/in/keyb zone" uuid="e7413176a91acc060036fd7f68fda24bbee265d3" name="keyb_1" x="98" y="294">
       <params/>
       <attribs>
-         <spinner attributeName="strtNote" value="0"/>
+         <spinner attributeName="startNote" value="0"/>
          <spinner attributeName="endNote" value="127"/>
-         <spinner attributeName="channel" value="3"/>
       </attribs>
    </obj>
    <obj type="filter/lp m" sha="c2224dc682842eae1af4496f3f94a6afc1525ee4" uuid="1aa1bc51da479ed92429af700591f9d7b9f45f22" name="lp_1" x="1148" y="294">
@@ -93,7 +83,7 @@
    </obj>
    <obj type="lfo/sine r" sha="793d67bc0866975a78623ac43c35750ba3cae412" uuid="725d481acbefa181fa5d92f414d317c86b77b789" name="sine_1" x="84" y="490">
       <params>
-         <frac32.s.map name="pitch" value="-64.0"/>
+         <frac32.s.map name="pitch" value="-55.0"/>
       </params>
       <attribs/>
    </obj>
@@ -147,19 +137,11 @@
       </params>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="406" y="616" text="Deep sub sine"/>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_3" x="406" y="630">
-      <params>
-         <frac32.s.map name="pitch" value="-23.899999141693115"/>
-      </params>
-      <attribs/>
-   </obj>
    <nets>
       <net>
-         <source obj="keyb_4" outlet="note"/>
+         <source obj="keyb_1" outlet="note"/>
          <dest obj="saw_1" inlet="pitch"/>
          <dest obj="saw_2" inlet="pitch"/>
-         <dest obj="sine_3" inlet="pitch"/>
          <dest obj="saw_3" inlet="pitch"/>
       </net>
       <net>
@@ -183,11 +165,6 @@
          <dest obj="saw_2" inlet="freq"/>
       </net>
       <net>
-         <source obj="sine_3" outlet="wave"/>
-         <dest obj="mix_1" inlet="bus_in"/>
-         <dest obj="mix_2" inlet="bus_in"/>
-      </net>
-      <net>
          <source obj="sine_1" outlet="wave"/>
          <dest obj="sine_2" inlet="pitch"/>
       </net>
@@ -204,17 +181,13 @@
          <dest obj="mix_2" inlet="in2"/>
       </net>
       <net>
-         <source obj="adsr_1" outlet="env"/>
+         <source obj="adsr_2" outlet="env"/>
+         <dest obj="*_2" inlet="a"/>
          <dest obj="*_1" inlet="a"/>
       </net>
       <net>
-         <source obj="adsr_2" outlet="env"/>
-         <dest obj="*_2" inlet="a"/>
-      </net>
-      <net>
-         <source obj="keyb_4" outlet="gate"/>
+         <source obj="keyb_1" outlet="gate"/>
          <dest obj="adsr_2" inlet="gate"/>
-         <dest obj="adsr_1" inlet="gate"/>
       </net>
       <net>
          <source obj="*_1" outlet="result"/>
@@ -250,13 +223,19 @@
       </net>
    </nets>
    <settings>
-      <subpatchmode>no</subpatchmode>
+      <subpatchmode>polyphonic</subpatchmode>
+      <MidiChannel>4</MidiChannel>
+      <HasMidiChannelSelector>true</HasMidiChannelSelector>
+      <NPresets>8</NPresets>
+      <NPresetEntries>32</NPresetEntries>
+      <NModulationSources>8</NModulationSources>
+      <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>960</x>
-      <y>22</y>
+      <x>320</x>
+      <y>23</y>
       <width>960</width>
-      <height>1054</height>
+      <height>773</height>
    </windowPos>
 </patch-1.0>
