@@ -1,25 +1,22 @@
-<preferences appVersion="1.0.10">
-   <CurrentFileDirectory>/Users/mackemint/Documents/axoloti/Sammich</CurrentFileDirectory>
-   <ObjectSearchPath>objects;</ObjectSearchPath>
+<preferences appVersion="1.0.12">
+   <CurrentFileDirectory>C:\Users\macke\Documents\axoloti\Sammich</CurrentFileDirectory>
    <PollInterval>50</PollInterval>
    <MouseDialAngular>false</MouseDialAngular>
    <ExpertMode>false</ExpertMode>
    <recentFiles>
-      <string>/Users/mackemint/Documents/axoloti/GameBOiii/NoiseGateEQFlEnvSTEREO.axp</string>
-      <string>/Users/mackemint/Documents/axoloti/Sammich/Sammich_FX.axp</string>
-      <string>/Users/mackemint/Documents/axoloti/GameBOiii/NoiseGateEQFlEnvSTEREO.axp</string>
-      <string>/Users/mackemint/Documents/axoloti/Sammich/SubOscillator.axs</string>
-      <string>/Users/mackemint/Documents/axoloti/Sammich/KickEnv.axp</string>
+      <string>C:\Users\macke\Documents\axoloti\Sammich\Sammich_FX.axp</string>
+      <string>C:\Users\macke\Documents\axoloti\Sammich\SubOscillator.axs</string>
+      <string>C:\Users\macke\Documents\axoloti\Sammich\KickEnv.axs</string>
    </recentFiles>
-   <RuntimeDir>/Applications/axoloti_runtime</RuntimeDir>
-   <FirmwareDir>/Applications/Axoloti.app/Contents/Java/firmware</FirmwareDir>
+   <RuntimeDir>C:\Program Files\axoloti_runtime</RuntimeDir>
+   <FirmwareDir>C:\Program Files\Axoloti\app\firmware</FirmwareDir>
    <FavouriteDir></FavouriteDir>
    <ControllerObject></ControllerObject>
    <ControllerEnabled>false</ControllerEnabled>
    <gitlib>
       <Id>factory</Id>
       <Type>git</Type>
-      <LocalLocation>/Users/mackemint/Documents/axoloti/axoloti-factory/</LocalLocation>
+      <LocalLocation>C:\Users\macke\Documents\axoloti\axoloti-factory\</LocalLocation>
       <Enabled>true</Enabled>
       <RemoteLocation>https://github.com/axoloti/axoloti-factory.git</RemoteLocation>
       <UserId></UserId>
@@ -31,7 +28,7 @@
    <filelib>
       <Id>home</Id>
       <Type>local</Type>
-      <LocalLocation>/Users/mackemint/Documents/axoloti/</LocalLocation>
+      <LocalLocation>C:\Users\macke\Documents\axoloti\</LocalLocation>
       <Enabled>true</Enabled>
       <RemoteLocation></RemoteLocation>
       <UserId></UserId>
@@ -43,7 +40,7 @@
    <gitlib>
       <Id>community</Id>
       <Type>git</Type>
-      <LocalLocation>/Users/mackemint/Documents/axoloti/axoloti-contrib/</LocalLocation>
+      <LocalLocation>C:\Users\macke\Documents\axoloti\axoloti-contrib\</LocalLocation>
       <Enabled>true</Enabled>
       <RemoteLocation>https://github.com/axoloti/axoloti-contrib.git</RemoteLocation>
       <UserId></UserId>

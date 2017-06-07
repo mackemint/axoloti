@@ -1,15 +1,15 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="SubOscOut" x="504" y="112">
       <params/>
       <attribs/>
    </obj>
    <comment type="patch/comment" x="322" y="182" text="Choose one octave down if &gt; 55"/>
    <comment type="patch/comment" x="504" y="182" text="SubOsc,Tuning"/>
-   <obj type="mux/mux 2" sha="73ba55fbf61b80b78dd5cb4f0c4bd5cbbdd54ea0" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="+_1" x="420" y="196">
+   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="+_1" x="420" y="196">
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="490" y="196">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="490" y="196">
       <params>
          <frac32.s.map name="pitch" value="-11.899999618530273"/>
       </params>
@@ -23,11 +23,11 @@
          <spinner attributeName="endNote" value="55"/>
       </attribs>
    </obj>
-   <obj type="math/-" sha="50b9299d5a370749aa9d6cfdb949bf3191a1f68" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="div_1" x="238" y="266">
+   <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="div_1" x="238" y="266">
       <params/>
       <attribs/>
    </obj>
-   <obj type="const/i" sha="15b9dce9232a04e8881936a6ea800e66ae8e0da9" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="140" y="294">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="140" y="294">
       <params/>
       <attribs>
          <spinner attributeName="value" value="12"/>
@@ -49,14 +49,6 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="14" y="504" text="Same but transposed down one octave"/>
-   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="midithru_1" x="140" y="532">
-      <params/>
-      <attribs>
-         <combo attributeName="input" selection="din"/>
-         <combo attributeName="output" selection="din"/>
-         <combo attributeName="led" selection="on"/>
-      </attribs>
-   </obj>
    <nets>
       <net>
          <source obj="keyb_1" outlet="gate"/>
@@ -108,9 +100,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>640</x>
-      <y>23</y>
-      <width>640</width>
-      <height>773</height>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1040</width>
+      <height>656</height>
    </windowPos>
 </patch-1.0>

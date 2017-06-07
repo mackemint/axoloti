@@ -1,159 +1,159 @@
 
 Discarded input sections
 
- .group         0x0000000000000000        0x8 /Users/mackemint/Documents/axoloti/build/xpatch.o
- .group         0x0000000000000000        0x8 /Users/mackemint/Documents/axoloti/build/xpatch.o
- .group         0x0000000000000000        0x8 /Users/mackemint/Documents/axoloti/build/xpatch.o
- .group         0x0000000000000000        0x8 /Users/mackemint/Documents/axoloti/build/xpatch.o
- .group         0x0000000000000000        0x8 /Users/mackemint/Documents/axoloti/build/xpatch.o
- .group         0x0000000000000000        0x8 /Users/mackemint/Documents/axoloti/build/xpatch.o
+ .group         0x00000000        0x8 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+ .group         0x00000000        0x8 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+ .group         0x00000000        0x8 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+ .group         0x00000000        0x8 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+ .group         0x00000000        0x8 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+ .group         0x00000000        0x8 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 
 Memory Configuration
 
 Name             Origin             Length             Attributes
-SRAM             0x0000000000011000 0x000000000000b000 xrw
-SRAM2            0x000000002001c000 0x0000000000002000 xrw
-CCMSRAM          0x0000000010000000 0x000000000000c000 rw
-sdram            0x00000000c0000000 0x0000000000800000
-*default*        0x0000000000000000 0xffffffffffffffff
+SRAM             0x00011000         0x0000b000         xrw
+SRAM2            0x2001c000         0x00002000         xrw
+CCMSRAM          0x10000000         0x0000c000         rw
+sdram            0xc0000000         0x00800000
+*default*        0x00000000         0xffffffff
 
 Linker script and memory map
 
-LOAD /Users/mackemint/Documents/axoloti/build/xpatch.o
+LOAD C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 LOAD ./build/axoloti.elf
 START GROUP
-LOAD /Applications/axoloti_runtime/platform_osx/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a
-LOAD /Applications/axoloti_runtime/platform_osx/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc.a
+LOAD c:/program files/axoloti_runtime/platform_win/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu\libgcc.a
+LOAD c:/program files/axoloti_runtime/platform_win/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/fpu\libc.a
 END GROUP
 
-.text           0x0000000000011000      0x7c0
+.text           0x00011000      0x820
  *(.boot)
- .boot          0x0000000000011000       0xa4 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x0000000000011000                xpatch_init
+ .boot          0x00011000       0xbc C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00011000                xpatch_init
  *(.text)
- *fill*         0x00000000000110a4        0xc 
- .text          0x00000000000110b0      0x6b4 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x00000000000111f0                PatchDispose()
-                0x0000000000011220                ApplyPreset(long)
-                0x00000000000112b0                PatchMidiInHandler(midi_device_t, unsigned char, unsigned char, unsigned char, unsigned char)
-                0x00000000000114e0                biquad_bp_coefs
-                0x0000000000011550                biquad_hp_coefs
-                0x00000000000115d0                PatchProcess(long*, long*)
-                0x00000000000116c0                xpatch_init2(int)
- *fill*         0x0000000000011764        0xc 
- .text.__stub   0x0000000000011770       0x50 linker stubs
-                0x00000000000117c0                etext = .
+ *fill*         0x000110bc        0x4 
+ .text          0x000110c0      0x6ec C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00011200                PatchDispose()
+                0x000112a0                ApplyPreset(long)
+                0x00011330                PatchMidiInHandler(midi_device_t, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00011600                PatchProcess(long*, long*)
+                0x000116f0                xpatch_init2(int)
+ *fill*         0x000117ac        0x4 
+ .text.__stub   0x000117b0       0x70 linker stubs
+                0x00011820                etext = .
 
-.glue_7         0x00000000000117c0        0x0
- .glue_7        0x0000000000000000        0x0 linker stubs
+.glue_7         0x00011820        0x0
+ .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x00000000000117c0        0x0
- .glue_7t       0x0000000000000000        0x0 linker stubs
+.glue_7t        0x00011820        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x00000000000117c0        0x0
- .vfp11_veneer  0x0000000000000000        0x0 linker stubs
+.vfp11_veneer   0x00011820        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00000000000117c0        0x0
- .v4_bx         0x0000000000000000        0x0 linker stubs
+.v4_bx          0x00011820        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
 
 .text._ZN5rootc4InitEv
-                0x00000000000117c0      0xec0
+                0x00011820      0xef0
  .text._ZN5rootc4InitEv
-                0x00000000000117c0      0xe60 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x00000000000117c0                rootc::Init()
+                0x00011820      0xe90 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00011820                rootc::Init()
  .text._ZN5rootc4InitEv.__stub
-                0x0000000000012620       0x60 linker stubs
+                0x000126b0       0x60 linker stubs
 
 .text._ZN5rootc3dspEv
-                0x0000000000012680     0x23e8
+                0x00012710     0x2648
  .text._ZN5rootc3dspEv
-                0x0000000000012680     0x23c4 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x0000000000012680                rootc::dsp()
- *fill*         0x0000000000014a44        0x4 
+                0x00012710     0x2624 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00012710                rootc::dsp()
+ *fill*         0x00014d34        0x4 
  .text._ZN5rootc3dspEv.__stub
-                0x0000000000014a48       0x20 linker stubs
+                0x00014d38       0x20 linker stubs
 
-.text.startup   0x0000000000014a70       0x1c
- .text.startup  0x0000000000014a70       0x1c /Users/mackemint/Documents/axoloti/build/xpatch.o
+.text.startup   0x00014d60       0x28
+ .text.startup  0x00014d60       0x28 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 
-.iplt           0x0000000000014a8c        0x0
- .iplt          0x0000000000000000        0x0 /Users/mackemint/Documents/axoloti/build/xpatch.o
+.iplt           0x00014d88        0x0
+ .iplt          0x00000000        0x0 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 
-constructors    0x0000000000014a8c        0x4
-                0x0000000000014a8c                PROVIDE (__ctor_array_start, .)
+constructors    0x00014d88        0x4
+                0x00014d88                PROVIDE (__ctor_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x0000000000014a8c        0x4 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x0000000000014a90                PROVIDE (__ctor_array_end, .)
+ .init_array    0x00014d88        0x4 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00014d8c                PROVIDE (__ctor_array_end, .)
 
-destructors     0x0000000000014a90        0x0
-                0x0000000000014a90                PROVIDE (__dtor_array_start, .)
+destructors     0x00014d8c        0x0
+                0x00014d8c                PROVIDE (__dtor_array_start, .)
  *(.fini_array)
  *(SORT(.fini_array.*))
-                0x0000000000014a90                PROVIDE (__dtor_array_end, .)
+                0x00014d8c                PROVIDE (__dtor_array_end, .)
 
-.rodata         0x0000000000014a90      0xa80
+.rodata         0x00014d8c      0xa80
  *(.rodata)
  *(.rodata.*)
  .rodata._ZZN5rootc10GetPresetsEvE1p
-                0x0000000000014a90      0x800 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x0000000000014a90                rootc::GetPresets()::p
+                0x00014d8c      0x800 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00014d8c                rootc::GetPresets()::p
  .rodata._ZZN5rootc13GetInitParamsEvE1p
-                0x0000000000015290       0x8c /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x0000000000015290                rootc::GetInitParams()::p
- .rodata._ZZN5rootc24instanceSubOscillator__13dspERA16_lRlE10zerobuffer
-                0x000000000001531c       0x40 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x000000000001531c                rootc::instanceSubOscillator__1::dsp(long (&) [16], long&)::zerobuffer
+                0x0001558c       0x8c C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x0001558c                rootc::GetInitParams()::p
+ .rodata._ZZN5rootc24instanceSubOscillator__13dspERA16_lRbE10zerobuffer
+                0x00015618       0x40 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00015618                rootc::instanceSubOscillator__1::dsp(long (&) [16], bool&)::zerobuffer
  .rodata._ZZN5rootc3dspEvE10zerobuffer
-                0x000000000001535c       0x40 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x000000000001535c                rootc::dsp()::zerobuffer
+                0x00015658       0x40 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x00015658                rootc::dsp()::zerobuffer
  .rodata.str1.4
-                0x000000000001539c      0x174 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                                        0x173 (size before relaxing)
+                0x00015698      0x174 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                                0x173 (size before relaxing)
 
-.rel.dyn        0x0000000000015510        0x0
- .rel.iplt      0x0000000000000000        0x0 /Users/mackemint/Documents/axoloti/build/xpatch.o
+.rel.dyn        0x0001580c        0x0
+ .rel.iplt      0x00000000        0x0 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 
-.data           0x0000000000015510        0x0
-                0x0000000000015510                sdata = .
+.data           0x0001580c        0x0
+                0x0001580c                sdata = .
  *(.data)
- .data          0x0000000000015510        0x0 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x0000000000015510                edata = .
+ .data          0x0001580c        0x0 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x0001580c                edata = .
 
-.igot.plt       0x0000000000015510        0x0
- .igot.plt      0x0000000000000000        0x0 /Users/mackemint/Documents/axoloti/build/xpatch.o
+.igot.plt       0x0001580c        0x0
+ .igot.plt      0x00000000        0x0 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 
 .sram2
  *(.sram2)
  *(.sram2.*)
 
-.bss            0x0000000010000000     0x1329
-                0x0000000010000000                PROVIDE (_pbss_start, .)
-                0x0000000010000000                sbss = .
+.bss            0x10000000     0x13a5
+                0x10000000                PROVIDE (_pbss_start, .)
+                0x10000000                sbss = .
  *(.bss)
- .bss           0x0000000010000000     0x1329 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                0x0000000010001224                AudioOutputMode
-                0x0000000010001228                AudioOutputLeft
-                0x0000000010001268                AudioOutputRight
-                0x00000000100012a8                AudioInputLeft
-                0x00000000100012e8                AudioInputRight
-                0x0000000010001328                AudioInputMode
-                0x0000000010001329                ebss = .
-                0x0000000010001329                PROVIDE (_pbss_end, .)
+ .bss           0x10000000     0x13a5 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                0x100012a0                AudioOutputMode
+                0x100012a4                AudioOutputLeft
+                0x100012e4                AudioOutputRight
+                0x10001324                AudioInputLeft
+                0x10001364                AudioInputRight
+                0x100013a4                AudioInputMode
+                0x100013a5                ebss = .
+                0x100013a5                PROVIDE (_pbss_end, .)
 
-.sdram
+.sdram          0xc0000000        0x0
  *(.sdram)
  *(.sdram.*)
-OUTPUT(/Users/mackemint/Documents/axoloti/build/xpatch.elf elf32-littlearm)
+                0xc0000000                PROVIDE (_sdram_dyn_start, .)
+                0xc0800000                PROVIDE (_sdram_dyn_end, (ORIGIN (sdram) + 0x800000))
+OUTPUT(C:\Users\macke\DOCUME~1\axoloti/build/xpatch.elf elf32-littlearm)
 
-.comment        0x0000000000000000       0x70
- .comment       0x0000000000000000       0x70 /Users/mackemint/Documents/axoloti/build/xpatch.o
-                                         0x71 (size before relaxing)
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+                                 0x71 (size before relaxing)
 
 .ARM.attributes
-                0x0000000000000000       0x37
+                0x00000000       0x37
  .ARM.attributes
-                0x0000000000000000       0x39 /Users/mackemint/Documents/axoloti/build/xpatch.o
+                0x00000000       0x39 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 
 Cross Reference Table
 
@@ -163,19 +163,19 @@ ADAU1961_I2CStop                                  ./build/axoloti.elf
 ADAU1961_ReadRegister                             ./build/axoloti.elf
 ADAU1961_ReadRegister6                            ./build/axoloti.elf
 ADAU1961_WriteRegister                            ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 ADAU1961_WriteRegister6                           ./build/axoloti.elf
 ADCD1                                             ./build/axoloti.elf
 ADCkvps                                           ./build/axoloti.elf
 AckPending                                        ./build/axoloti.elf
 ApplyPreset                                       ./build/axoloti.elf
-ApplyPreset(long)                                 /Users/mackemint/Documents/axoloti/build/xpatch.o
-AudioInputLeft                                    /Users/mackemint/Documents/axoloti/build/xpatch.o
-AudioInputMode                                    /Users/mackemint/Documents/axoloti/build/xpatch.o
-AudioInputRight                                   /Users/mackemint/Documents/axoloti/build/xpatch.o
-AudioOutputLeft                                   /Users/mackemint/Documents/axoloti/build/xpatch.o
-AudioOutputMode                                   /Users/mackemint/Documents/axoloti/build/xpatch.o
-AudioOutputRight                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+ApplyPreset(long)                                 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+AudioInputLeft                                    C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+AudioInputMode                                    C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+AudioInputRight                                   C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+AudioOutputLeft                                   C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+AudioOutputMode                                   C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+AudioOutputRight                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 AxolotiControlUpdate                              ./build/axoloti.elf
 BDU1                                              ./build/axoloti.elf
 BootLoaderInit                                    ./build/axoloti.elf
@@ -186,6 +186,7 @@ Btn_Nav_PrevStates                                ./build/axoloti.elf
 BusFaultVector                                    ./build/axoloti.elf
 CalcCRC32                                         ./build/axoloti.elf
 CheckI2CErrors                                    ./build/axoloti.elf
+CheckStackOverflow                                ./build/axoloti.elf
 CloseFile                                         ./build/axoloti.elf
 CopyPatchToFlash                                  ./build/axoloti.elf
 DebugMonitorVector                                ./build/axoloti.elf
@@ -223,8 +224,8 @@ FMC_SetAutoRefresh_Number                         ./build/axoloti.elf
 FMC_SetRefreshCount                               ./build/axoloti.elf
 FastLog                                           ./build/axoloti.elf
 FileName                                          ./build/axoloti.elf
-GenerateRandomNumber                              ./build/axoloti.elf
 GetFirmwareID                                     ./build/axoloti.elf
+GetIndexOfCurrentPatch                            ./build/axoloti.elf
 HAL_Delay                                         ./build/axoloti.elf
 HAL_GPIO_DeInit                                   ./build/axoloti.elf
 HAL_GPIO_EXTI_Callback                            ./build/axoloti.elf
@@ -277,7 +278,6 @@ HardFaultVector                                   ./build/axoloti.elf
 I2CD1                                             ./build/axoloti.elf
 I2CD3                                             ./build/axoloti.elf
 InitPConnection                                   ./build/axoloti.elf
-InitPWM                                           ./build/axoloti.elf
 InitPatch0                                        ./build/axoloti.elf
 KVP_ClearObjects                                  ./build/axoloti.elf
 KVP_Decrement                                     ./build/axoloti.elf
@@ -285,7 +285,7 @@ KVP_Display                                       ./build/axoloti.elf
 KVP_DisplayInv                                    ./build/axoloti.elf
 KVP_Increment                                     ./build/axoloti.elf
 KVP_RegisterObject                                ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 KvpsDisplay                                       ./build/axoloti.elf
 KvpsHead                                          ./build/axoloti.elf
 LCD_clearDisplay                                  ./build/axoloti.elf
@@ -309,6 +309,8 @@ LCD_updateBoundingBox                             ./build/axoloti.elf
 LoadMenu                                          ./build/axoloti.elf
 LoadPatch                                         ./build/axoloti.elf
 LoadPatchIndexed                                  ./build/axoloti.elf
+LoadPatchStartFlash                               ./build/axoloti.elf
+LoadPatchStartSD                                  ./build/axoloti.elf
 LogTextMessage                                    ./build/axoloti.elf
 MDU1                                              ./build/axoloti.elf
 MIDI_CB                                           ./build/axoloti.elf
@@ -327,19 +329,20 @@ MidiInChannel                                     ./build/axoloti.elf
 MidiInMsgHandler                                  ./build/axoloti.elf
 MidiNumData                                       ./build/axoloti.elf
 MidiSend1                                         ./build/axoloti.elf
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 MidiSend2                                         ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 MidiSend3                                         ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 MidiSendSysEx                                     ./build/axoloti.elf
 Mutex_DMAStream_1_7                               ./build/axoloti.elf
 NMIVector                                         ./build/axoloti.elf
 ObjectKvpRoot                                     ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 ObjectKvps                                        ./build/axoloti.elf
 PExModulationSourceChange                         ./build/axoloti.elf
 PExParameterChange                                ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 PExReceive                                        ./build/axoloti.elf
 PExReceiveByte                                    ./build/axoloti.elf
 PExTransmit                                       ./build/axoloti.elf
@@ -348,9 +351,9 @@ PWMD3                                             ./build/axoloti.elf
 PWMD4                                             ./build/axoloti.elf
 PWMD5                                             ./build/axoloti.elf
 PWMD8                                             ./build/axoloti.elf
-PatchDispose()                                    /Users/mackemint/Documents/axoloti/build/xpatch.o
-PatchMidiInHandler(midi_device_t, unsigned char, unsigned char, unsigned char, unsigned char) /Users/mackemint/Documents/axoloti/build/xpatch.o
-PatchProcess(long*, long*)                        /Users/mackemint/Documents/axoloti/build/xpatch.o
+PatchDispose()                                    C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+PatchMidiInHandler(midi_device_t, unsigned char, unsigned char, unsigned char, unsigned char) C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+PatchProcess(long*, long*)                        C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 PendSVVector                                      ./build/axoloti.elf
 ReadDirectoryListing                              ./build/axoloti.elf
 ReplyFWVersion                                    ./build/axoloti.elf
@@ -372,9 +375,8 @@ SetKVP_APVP                                       ./build/axoloti.elf
 SetKVP_AVP                                        ./build/axoloti.elf
 SetKVP_FNCTN                                      ./build/axoloti.elf
 SetKVP_IPVP                                       ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 SetKVP_IVP                                        ./build/axoloti.elf
-StartLoadPatchTread                               ./build/axoloti.elf
 StartPatch                                        ./build/axoloti.elf
 StopPatch                                         ./build/axoloti.elf
 SysMsgLengthLookup                                ./build/axoloti.elf
@@ -599,9 +601,26 @@ VectorF4                                          ./build/axoloti.elf
 VectorF8                                          ./build/axoloti.elf
 VectorFC                                          ./build/axoloti.elf
 Vendor_Class                                      ./build/axoloti.elf
-_Balloc                                           ./build/axoloti.elf
-_Bfree                                            ./build/axoloti.elf
-_PathLocale                                       ./build/axoloti.elf
+_Unwind_Backtrace                                 ./build/axoloti.elf
+_Unwind_Complete                                  ./build/axoloti.elf
+_Unwind_DeleteException                           ./build/axoloti.elf
+_Unwind_ForcedUnwind                              ./build/axoloti.elf
+_Unwind_GetCFA                                    ./build/axoloti.elf
+_Unwind_GetDataRelBase                            ./build/axoloti.elf
+_Unwind_GetLanguageSpecificData                   ./build/axoloti.elf
+_Unwind_GetRegionStart                            ./build/axoloti.elf
+_Unwind_GetTextRelBase                            ./build/axoloti.elf
+_Unwind_RaiseException                            ./build/axoloti.elf
+_Unwind_Resume                                    ./build/axoloti.elf
+_Unwind_Resume_or_Rethrow                         ./build/axoloti.elf
+_Unwind_VRS_Get                                   ./build/axoloti.elf
+_Unwind_VRS_Pop                                   ./build/axoloti.elf
+_Unwind_VRS_Set                                   ./build/axoloti.elf
+___Unwind_Backtrace                               ./build/axoloti.elf
+___Unwind_ForcedUnwind                            ./build/axoloti.elf
+___Unwind_RaiseException                          ./build/axoloti.elf
+___Unwind_Resume                                  ./build/axoloti.elf
+___Unwind_Resume_or_Rethrow                       ./build/axoloti.elf
 __adddf3                                          ./build/axoloti.elf
 __aeabi_cdcmpeq                                   ./build/axoloti.elf
 __aeabi_cdcmple                                   ./build/axoloti.elf
@@ -621,26 +640,26 @@ __aeabi_drsub                                     ./build/axoloti.elf
 __aeabi_dsub                                      ./build/axoloti.elf
 __aeabi_f2d                                       ./build/axoloti.elf
 __aeabi_i2d                                       ./build/axoloti.elf
-__aeabi_idiv0                                     ./build/axoloti.elf
 __aeabi_l2d                                       ./build/axoloti.elf
-__aeabi_ldiv0                                     ./build/axoloti.elf
 __aeabi_ui2d                                      ./build/axoloti.elf
 __aeabi_ul2d                                      ./build/axoloti.elf
-__aeabi_uldivmod                                  ./build/axoloti.elf
-__any_on                                          ./build/axoloti.elf
-__b2d                                             ./build/axoloti.elf
+__aeabi_unwind_cpp_pr0                            ./build/axoloti.elf
+__aeabi_unwind_cpp_pr1                            ./build/axoloti.elf
+__aeabi_unwind_cpp_pr2                            ./build/axoloti.elf
 __cmpdf2                                          ./build/axoloti.elf
-__copybits                                        ./build/axoloti.elf
-__ctor_array_end                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
-__ctor_array_start                                /Users/mackemint/Documents/axoloti/build/xpatch.o
-__d2b                                             ./build/axoloti.elf
+__ctor_array_end                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+__ctor_array_start                                C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+__cxa_begin_cleanup                               ./build/axoloti.elf
+__cxa_call_unexpected                             ./build/axoloti.elf
+__cxa_type_match                                  ./build/axoloti.elf
 __divdf3                                          ./build/axoloti.elf
-__divdi3                                          ./build/axoloti.elf
-__dtor_array_end                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
-__dtor_array_start                                /Users/mackemint/Documents/axoloti/build/xpatch.o
+__dtor_array_end                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+__dtor_array_start                                C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 __early_init                                      ./build/axoloti.elf
 __eqdf2                                           ./build/axoloti.elf
 __errno                                           ./build/axoloti.elf
+__exidx_end                                       ./build/axoloti.elf
+__exidx_start                                     ./build/axoloti.elf
 __extendsfdf2                                     ./build/axoloti.elf
 __fdlib_version                                   ./build/axoloti.elf
 __fini_array_end                                  ./build/axoloti.elf
@@ -654,13 +673,27 @@ __floatunsidf                                     ./build/axoloti.elf
 __fpclassifyd                                     ./build/axoloti.elf
 __fpclassifyf                                     ./build/axoloti.elf
 __gedf2                                           ./build/axoloti.elf
-__gnu_ldivmod_helper                              ./build/axoloti.elf
-__gnu_uldivmod_helper                             ./build/axoloti.elf
+__gnu_Unwind_Backtrace                            ./build/axoloti.elf
+__gnu_Unwind_Find_exidx                           ./build/axoloti.elf
+__gnu_Unwind_ForcedUnwind                         ./build/axoloti.elf
+__gnu_Unwind_RaiseException                       ./build/axoloti.elf
+__gnu_Unwind_Restore_VFP                          ./build/axoloti.elf
+__gnu_Unwind_Restore_VFP_D                        ./build/axoloti.elf
+__gnu_Unwind_Restore_VFP_D_16_to_31               ./build/axoloti.elf
+__gnu_Unwind_Restore_WMMXC                        ./build/axoloti.elf
+__gnu_Unwind_Restore_WMMXD                        ./build/axoloti.elf
+__gnu_Unwind_Resume                               ./build/axoloti.elf
+__gnu_Unwind_Resume_or_Rethrow                    ./build/axoloti.elf
+__gnu_Unwind_Save_VFP                             ./build/axoloti.elf
+__gnu_Unwind_Save_VFP_D                           ./build/axoloti.elf
+__gnu_Unwind_Save_VFP_D_16_to_31                  ./build/axoloti.elf
+__gnu_Unwind_Save_WMMXC                           ./build/axoloti.elf
+__gnu_Unwind_Save_WMMXD                           ./build/axoloti.elf
+__gnu_unwind_execute                              ./build/axoloti.elf
+__gnu_unwind_frame                                ./build/axoloti.elf
 __gtdf2                                           ./build/axoloti.elf
 __heap_base__                                     ./build/axoloti.elf
 __heap_end__                                      ./build/axoloti.elf
-__hi0bits                                         ./build/axoloti.elf
-__i2b                                             ./build/axoloti.elf
 __ieee754_log                                     ./build/axoloti.elf
 __ieee754_pow                                     ./build/axoloti.elf
 __ieee754_powf                                    ./build/axoloti.elf
@@ -674,12 +707,6 @@ __kernel_rem_pio2f                                ./build/axoloti.elf
 __kernel_sinf                                     ./build/axoloti.elf
 __late_init                                       ./build/axoloti.elf
 __ledf2                                           ./build/axoloti.elf
-__lo0bits                                         ./build/axoloti.elf
-__locale_charset                                  ./build/axoloti.elf
-__locale_cjk_lang                                 ./build/axoloti.elf
-__locale_mb_cur_max                               ./build/axoloti.elf
-__locale_msgcharset                               ./build/axoloti.elf
-__lshift                                          ./build/axoloti.elf
 __ltdf2                                           ./build/axoloti.elf
 __main_stack_base__                               ./build/axoloti.elf
 __main_stack_end__                                ./build/axoloti.elf
@@ -695,101 +722,70 @@ __malloc_sbrk_base                                ./build/axoloti.elf
 __malloc_top_pad                                  ./build/axoloti.elf
 __malloc_trim_threshold                           ./build/axoloti.elf
 __malloc_unlock                                   ./build/axoloti.elf
-__mb_cur_max                                      ./build/axoloti.elf
-__mcmp                                            ./build/axoloti.elf
-__mdiff                                           ./build/axoloti.elf
-__mlocale_changed                                 ./build/axoloti.elf
-__mprec_bigtens                                   ./build/axoloti.elf
-__mprec_tens                                      ./build/axoloti.elf
-__mprec_tinytens                                  ./build/axoloti.elf
 __muldf3                                          ./build/axoloti.elf
-__multadd                                         ./build/axoloti.elf
-__multiply                                        ./build/axoloti.elf
 __nedf2                                           ./build/axoloti.elf
-__nlocale_changed                                 ./build/axoloti.elf
-__pow5mult                                        ./build/axoloti.elf
 __process_stack_base__                            ./build/axoloti.elf
 __process_stack_end__                             ./build/axoloti.elf
 __process_stack_size__                            ./build/axoloti.elf
 __ram_end__                                       ./build/axoloti.elf
 __ram_size__                                      ./build/axoloti.elf
 __ram_start__                                     ./build/axoloti.elf
-__ratio                                           ./build/axoloti.elf
-__s2b                                             ./build/axoloti.elf
+__restore_core_regs                               ./build/axoloti.elf
 __sdram_end__                                     ./build/axoloti.elf
 __sdram_size__                                    ./build/axoloti.elf
 __sdram_start__                                   ./build/axoloti.elf
-__ssprint_r                                       ./build/axoloti.elf
+__sigtramp                                        ./build/axoloti.elf
+__sigtramp_r                                      ./build/axoloti.elf
 __subdf3                                          ./build/axoloti.elf
 __truncdfsf2                                      ./build/axoloti.elf
-__udivdi3                                         ./build/axoloti.elf
-__ulp                                             ./build/axoloti.elf
-_binary_808bd_raw_end                             ./build/axoloti.elf
-_binary_808bd_raw_size                            ./build/axoloti.elf
-_binary_808bd_raw_start                           ./build/axoloti.elf
-_binary_808hatclose_raw_end                       ./build/axoloti.elf
-_binary_808hatclose_raw_size                      ./build/axoloti.elf
-_binary_808hatclose_raw_start                     ./build/axoloti.elf
-_binary_808hatopen_raw_end                        ./build/axoloti.elf
-_binary_808hatopen_raw_size                       ./build/axoloti.elf
-_binary_808hatopen_raw_start                      ./build/axoloti.elf
-_binary_808hitom_raw_end                          ./build/axoloti.elf
-_binary_808hitom_raw_size                         ./build/axoloti.elf
-_binary_808hitom_raw_start                        ./build/axoloti.elf
-_binary_808lotom_raw_end                          ./build/axoloti.elf
-_binary_808lotom_raw_size                         ./build/axoloti.elf
-_binary_808lotom_raw_start                        ./build/axoloti.elf
-_binary_808midtom_raw_end                         ./build/axoloti.elf
-_binary_808midtom_raw_size                        ./build/axoloti.elf
-_binary_808midtom_raw_start                       ./build/axoloti.elf
-_binary_808snare_raw_end                          ./build/axoloti.elf
-_binary_808snare_raw_size                         ./build/axoloti.elf
-_binary_808snare_raw_start                        ./build/axoloti.elf
 _bss_end                                          ./build/axoloti.elf
 _bss_start                                        ./build/axoloti.elf
-_calloc_r                                         ./build/axoloti.elf
 _core_init                                        ./build/axoloti.elf
 _data                                             ./build/axoloti.elf
 _default_exit                                     ./build/axoloti.elf
-_dtoa_r                                           ./build/axoloti.elf
 _edata                                            ./build/axoloti.elf
 _end                                              ./build/axoloti.elf
 _etext                                            ./build/axoloti.elf
+_exit                                             ./build/axoloti.elf
 _flash_end                                        ./build/axoloti.elf
 _free_r                                           ./build/axoloti.elf
+_getpid                                           ./build/axoloti.elf
+_getpid_r                                         ./build/axoloti.elf
 _global_impure_ptr                                ./build/axoloti.elf
 _heap_init                                        ./build/axoloti.elf
 _idle_thread                                      ./build/axoloti.elf
 _idle_thread_wa                                   ./build/axoloti.elf
 _impure_ptr                                       ./build/axoloti.elf
-_localeconv_r                                     ./build/axoloti.elf
+_init_signal                                      ./build/axoloti.elf
+_init_signal_r                                    ./build/axoloti.elf
+_kill                                             ./build/axoloti.elf
+_kill_r                                           ./build/axoloti.elf
 _malloc_r                                         ./build/axoloti.elf
 _malloc_trim_r                                    ./build/axoloti.elf
-_mprec_log10                                      ./build/axoloti.elf
 _pal_lld_init                                     ./build/axoloti.elf
 _pal_lld_setgroupmode                             ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
-_pbss_end                                         /Users/mackemint/Documents/axoloti/build/xpatch.o
-_pbss_start                                       /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+_pbss_end                                         C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+_pbss_start                                       C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 _port_init                                        ./build/axoloti.elf
 _port_irq_epilogue                                ./build/axoloti.elf
 _port_switch                                      ./build/axoloti.elf
 _port_switch_from_isr                             ./build/axoloti.elf
 _port_thread_start                                ./build/axoloti.elf
-_realloc_r                                        ./build/axoloti.elf
+_raise_r                                          ./build/axoloti.elf
 _reclaim_reent                                    ./build/axoloti.elf
 _sbrk                                             ./build/axoloti.elf
 _sbrk_r                                           ./build/axoloti.elf
 _scheduler_init                                   ./build/axoloti.elf
 _sdc_wait_for_transfer_state                      ./build/axoloti.elf
-_setlocale_r                                      ./build/axoloti.elf
-_sprintf_r                                        ./build/axoloti.elf
+_sdram_dyn_end                                    C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+_sdram_dyn_start                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+_signal_r                                         ./build/axoloti.elf
 _stm32_dma_streams                                ./build/axoloti.elf
-_svfiprintf_r                                     ./build/axoloti.elf
-_svfprintf_r                                      ./build/axoloti.elf
 _text                                             ./build/axoloti.elf
 _textdata                                         ./build/axoloti.elf
 _thread_init                                      ./build/axoloti.elf
+_thread_memfill                                   ./build/axoloti.elf
 _unhandled_exception                              ./build/axoloti.elf
 _usb_ep0in                                        ./build/axoloti.elf
 _usb_ep0out                                       ./build/axoloti.elf
@@ -797,6 +793,8 @@ _usb_ep0setup                                     ./build/axoloti.elf
 _usb_reset                                        ./build/axoloti.elf
 _vectors                                          ./build/axoloti.elf
 _vt_init                                          ./build/axoloti.elf
+_write                                            ./build/axoloti.elf
+abort                                             ./build/axoloti.elf
 adcAcquireBus                                     ./build/axoloti.elf
 adcConvert                                        ./build/axoloti.elf
 adcInit                                           ./build/axoloti.elf
@@ -821,7 +819,7 @@ adc_lld_start_conversion                          ./build/axoloti.elf
 adc_lld_stop                                      ./build/axoloti.elf
 adc_lld_stop_conversion                           ./build/axoloti.elf
 adcvalues                                         ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 armBitRevIndexTable1024                           ./build/axoloti.elf
 armBitRevIndexTable128                            ./build/axoloti.elf
 armBitRevIndexTable16                             ./build/axoloti.elf
@@ -831,6 +829,15 @@ armBitRevIndexTable32                             ./build/axoloti.elf
 armBitRevIndexTable4096                           ./build/axoloti.elf
 armBitRevIndexTable512                            ./build/axoloti.elf
 armBitRevIndexTable64                             ./build/axoloti.elf
+armBitRevIndexTable_fixed_1024                    ./build/axoloti.elf
+armBitRevIndexTable_fixed_128                     ./build/axoloti.elf
+armBitRevIndexTable_fixed_16                      ./build/axoloti.elf
+armBitRevIndexTable_fixed_2048                    ./build/axoloti.elf
+armBitRevIndexTable_fixed_256                     ./build/axoloti.elf
+armBitRevIndexTable_fixed_32                      ./build/axoloti.elf
+armBitRevIndexTable_fixed_4096                    ./build/axoloti.elf
+armBitRevIndexTable_fixed_512                     ./build/axoloti.elf
+armBitRevIndexTable_fixed_64                      ./build/axoloti.elf
 armBitRevTable                                    ./build/axoloti.elf
 armRecipTableQ15                                  ./build/axoloti.elf
 armRecipTableQ31                                  ./build/axoloti.elf
@@ -839,16 +846,66 @@ arm_biquad_cas_df1_32x64_q31                      ./build/axoloti.elf
 arm_biquad_cascade_df1_fast_q31                   ./build/axoloti.elf
 arm_biquad_cascade_df1_init_q31                   ./build/axoloti.elf
 arm_biquad_cascade_df1_q31                        ./build/axoloti.elf
+arm_bitreversal_16                                ./build/axoloti.elf
+arm_bitreversal_32                                ./build/axoloti.elf
 arm_bitreversal_f32                               ./build/axoloti.elf
 arm_bitreversal_q15                               ./build/axoloti.elf
 arm_bitreversal_q31                               ./build/axoloti.elf
+arm_cfft_f32                                      ./build/axoloti.elf
+arm_cfft_q15                                      ./build/axoloti.elf
+arm_cfft_q31                                      ./build/axoloti.elf
+arm_cfft_radix2_f32                               ./build/axoloti.elf
+arm_cfft_radix2_init_f32                          ./build/axoloti.elf
+arm_cfft_radix2_init_q15                          ./build/axoloti.elf
+arm_cfft_radix2_init_q31                          ./build/axoloti.elf
+arm_cfft_radix2_q15                               ./build/axoloti.elf
+arm_cfft_radix2_q31                               ./build/axoloti.elf
+arm_cfft_radix4_f32                               ./build/axoloti.elf
+arm_cfft_radix4_init_f32                          ./build/axoloti.elf
+arm_cfft_radix4_init_q15                          ./build/axoloti.elf
 arm_cfft_radix4_init_q31                          ./build/axoloti.elf
+arm_cfft_radix4_q15                               ./build/axoloti.elf
 arm_cfft_radix4_q31                               ./build/axoloti.elf
+arm_cfft_radix4by2_inverse_q15                    ./build/axoloti.elf
+arm_cfft_radix4by2_inverse_q31                    ./build/axoloti.elf
+arm_cfft_radix4by2_q15                            ./build/axoloti.elf
+arm_cfft_radix4by2_q31                            ./build/axoloti.elf
+arm_cfft_radix8by2_f32                            ./build/axoloti.elf
+arm_cfft_radix8by4_f32                            ./build/axoloti.elf
+arm_cfft_sR_f32_len1024                           ./build/axoloti.elf
+arm_cfft_sR_f32_len128                            ./build/axoloti.elf
+arm_cfft_sR_f32_len16                             ./build/axoloti.elf
+arm_cfft_sR_f32_len2048                           ./build/axoloti.elf
+arm_cfft_sR_f32_len256                            ./build/axoloti.elf
+arm_cfft_sR_f32_len32                             ./build/axoloti.elf
+arm_cfft_sR_f32_len4096                           ./build/axoloti.elf
+arm_cfft_sR_f32_len512                            ./build/axoloti.elf
+arm_cfft_sR_f32_len64                             ./build/axoloti.elf
+arm_cfft_sR_q15_len1024                           ./build/axoloti.elf
+arm_cfft_sR_q15_len128                            ./build/axoloti.elf
+arm_cfft_sR_q15_len16                             ./build/axoloti.elf
+arm_cfft_sR_q15_len2048                           ./build/axoloti.elf
+arm_cfft_sR_q15_len256                            ./build/axoloti.elf
+arm_cfft_sR_q15_len32                             ./build/axoloti.elf
+arm_cfft_sR_q15_len4096                           ./build/axoloti.elf
+arm_cfft_sR_q15_len512                            ./build/axoloti.elf
+arm_cfft_sR_q15_len64                             ./build/axoloti.elf
+arm_cfft_sR_q31_len1024                           ./build/axoloti.elf
+arm_cfft_sR_q31_len128                            ./build/axoloti.elf
+arm_cfft_sR_q31_len16                             ./build/axoloti.elf
+arm_cfft_sR_q31_len2048                           ./build/axoloti.elf
+arm_cfft_sR_q31_len256                            ./build/axoloti.elf
+arm_cfft_sR_q31_len32                             ./build/axoloti.elf
+arm_cfft_sR_q31_len4096                           ./build/axoloti.elf
+arm_cfft_sR_q31_len512                            ./build/axoloti.elf
+arm_cfft_sR_q31_len64                             ./build/axoloti.elf
+arm_cmplx_mag_q15                                 ./build/axoloti.elf
 arm_cmplx_mag_q31                                 ./build/axoloti.elf
+arm_cmplx_mult_cmplx_f32                          ./build/axoloti.elf
+arm_cmplx_mult_cmplx_q15                          ./build/axoloti.elf
 arm_cmplx_mult_cmplx_q31                          ./build/axoloti.elf
 arm_cos_q31                                       ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
-arm_dct4_q31                                      ./build/axoloti.elf
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 arm_fir_decimate_fast_q31                         ./build/axoloti.elf
 arm_fir_decimate_init_q31                         ./build/axoloti.elf
 arm_fir_decimate_q31                              ./build/axoloti.elf
@@ -860,16 +917,68 @@ arm_fir_lattice_init_q31                          ./build/axoloti.elf
 arm_fir_lattice_q31                               ./build/axoloti.elf
 arm_iir_lattice_init_q31                          ./build/axoloti.elf
 arm_iir_lattice_q31                               ./build/axoloti.elf
+arm_mult_f32                                      ./build/axoloti.elf
+arm_mult_q15                                      ./build/axoloti.elf
 arm_mult_q31                                      ./build/axoloti.elf
+arm_radix2_butterfly_f32                          ./build/axoloti.elf
+arm_radix2_butterfly_inverse_f32                  ./build/axoloti.elf
+arm_radix2_butterfly_inverse_q15                  ./build/axoloti.elf
+arm_radix2_butterfly_inverse_q31                  ./build/axoloti.elf
+arm_radix2_butterfly_q15                          ./build/axoloti.elf
+arm_radix2_butterfly_q31                          ./build/axoloti.elf
+arm_radix4_butterfly_f32                          ./build/axoloti.elf
+arm_radix4_butterfly_inverse_f32                  ./build/axoloti.elf
+arm_radix4_butterfly_inverse_q15                  ./build/axoloti.elf
 arm_radix4_butterfly_inverse_q31                  ./build/axoloti.elf
+arm_radix4_butterfly_q15                          ./build/axoloti.elf
 arm_radix4_butterfly_q31                          ./build/axoloti.elf
+arm_radix8_butterfly_f32                          ./build/axoloti.elf
+arm_rfft_f32                                      ./build/axoloti.elf
+arm_rfft_fast_f32                                 ./build/axoloti.elf
+arm_rfft_fast_init_f32                            ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len1024                      ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len128                       ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len2048                      ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len256                       ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len32                        ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len4096                      ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len512                       ./build/axoloti.elf
+arm_rfft_fast_sR_f32_len64                        ./build/axoloti.elf
+arm_rfft_init_f32                                 ./build/axoloti.elf
+arm_rfft_init_q15                                 ./build/axoloti.elf
 arm_rfft_init_q31                                 ./build/axoloti.elf
+arm_rfft_q15                                      ./build/axoloti.elf
 arm_rfft_q31                                      ./build/axoloti.elf
+arm_rfft_sR_q15_len1024                           ./build/axoloti.elf
+arm_rfft_sR_q15_len128                            ./build/axoloti.elf
+arm_rfft_sR_q15_len2048                           ./build/axoloti.elf
+arm_rfft_sR_q15_len256                            ./build/axoloti.elf
+arm_rfft_sR_q15_len32                             ./build/axoloti.elf
+arm_rfft_sR_q15_len4096                           ./build/axoloti.elf
+arm_rfft_sR_q15_len512                            ./build/axoloti.elf
+arm_rfft_sR_q15_len64                             ./build/axoloti.elf
+arm_rfft_sR_q15_len8192                           ./build/axoloti.elf
+arm_rfft_sR_q31_len1024                           ./build/axoloti.elf
+arm_rfft_sR_q31_len128                            ./build/axoloti.elf
+arm_rfft_sR_q31_len2048                           ./build/axoloti.elf
+arm_rfft_sR_q31_len256                            ./build/axoloti.elf
+arm_rfft_sR_q31_len32                             ./build/axoloti.elf
+arm_rfft_sR_q31_len4096                           ./build/axoloti.elf
+arm_rfft_sR_q31_len512                            ./build/axoloti.elf
+arm_rfft_sR_q31_len64                             ./build/axoloti.elf
+arm_rfft_sR_q31_len8192                           ./build/axoloti.elf
+arm_scale_f32                                     ./build/axoloti.elf
+arm_shift_q15                                     ./build/axoloti.elf
 arm_shift_q31                                     ./build/axoloti.elf
 arm_sin_q31                                       ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+arm_split_rfft_f32                                ./build/axoloti.elf
+arm_split_rfft_q15                                ./build/axoloti.elf
 arm_split_rfft_q31                                ./build/axoloti.elf
+arm_split_rifft_f32                               ./build/axoloti.elf
+arm_split_rifft_q15                               ./build/axoloti.elf
 arm_split_rifft_q31                               ./build/axoloti.elf
+arm_sqrt_q15                                      ./build/axoloti.elf
 arm_sqrt_q31                                      ./build/axoloti.elf
 axoloti_board_init                                ./build/axoloti.elf
 axoloti_control_init                              ./build/axoloti.elf
@@ -883,13 +992,62 @@ bduObjectInit                                     ./build/axoloti.elf
 bduRequestsHook                                   ./build/axoloti.elf
 bduStart                                          ./build/axoloti.elf
 bduStop                                           ./build/axoloti.elf
-biquad_bp_coefs                                   ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
-biquad_hp_coefs                                   ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
 blept                                             ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 boardInit                                         ./build/axoloti.elf
+braids::char_table                                ./build/axoloti.elf
+braids::chr_characters                            ./build/axoloti.elf
+braids::lookup_table_hr_table                     ./build/axoloti.elf
+braids::lookup_table_signed_table                 ./build/axoloti.elf
+braids::lookup_table_table                        ./build/axoloti.elf
+braids::lut_bell                                  ./build/axoloti.elf
+braids::lut_blowing_envelope                      ./build/axoloti.elf
+braids::lut_blowing_jet                           ./build/axoloti.elf
+braids::lut_bowing_envelope                       ./build/axoloti.elf
+braids::lut_bowing_friction                       ./build/axoloti.elf
+braids::lut_env_expo                              ./build/axoloti.elf
+braids::lut_env_portamento_increments             ./build/axoloti.elf
+braids::lut_flute_body_filter                     ./build/axoloti.elf
+braids::lut_fm_frequency_quantizer                ./build/axoloti.elf
+braids::lut_granular_envelope                     ./build/axoloti.elf
+braids::lut_granular_envelope_rate                ./build/axoloti.elf
+braids::lut_oscillator_delays                     ./build/axoloti.elf
+braids::lut_oscillator_increments                 ./build/axoloti.elf
+braids::lut_resonator_coefficient                 ./build/axoloti.elf
+braids::lut_resonator_scale                       ./build/axoloti.elf
+braids::lut_svf_cutoff                            ./build/axoloti.elf
+braids::lut_svf_damp                              ./build/axoloti.elf
+braids::lut_svf_scale                             ./build/axoloti.elf
+braids::lut_vco_detune                            ./build/axoloti.elf
+braids::string_table                              ./build/axoloti.elf
+braids::wav_bandlimited_comb_0                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_1                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_10                   ./build/axoloti.elf
+braids::wav_bandlimited_comb_11                   ./build/axoloti.elf
+braids::wav_bandlimited_comb_12                   ./build/axoloti.elf
+braids::wav_bandlimited_comb_13                   ./build/axoloti.elf
+braids::wav_bandlimited_comb_14                   ./build/axoloti.elf
+braids::wav_bandlimited_comb_2                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_3                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_4                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_5                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_6                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_7                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_8                    ./build/axoloti.elf
+braids::wav_bandlimited_comb_9                    ./build/axoloti.elf
+braids::wav_formant_sine                          ./build/axoloti.elf
+braids::wav_formant_square                        ./build/axoloti.elf
+braids::wav_sine                                  ./build/axoloti.elf
+braids::waveform_table                            ./build/axoloti.elf
+braids::waveshaper_table                          ./build/axoloti.elf
+braids::ws_moderate_overdrive                     ./build/axoloti.elf
+braids::ws_sine_fold                              ./build/axoloti.elf
+braids::ws_tri_fold                               ./build/axoloti.elf
+braids::ws_violent_overdrive                      ./build/axoloti.elf
+braids::wt_code                                   ./build/axoloti.elf
+braids::wt_map                                    ./build/axoloti.elf
+braids::wt_table                                  ./build/axoloti.elf
+braids::wt_waves                                  ./build/axoloti.elf
 buf                                               ./build/axoloti.elf
 buf2                                              ./build/axoloti.elf
 bulkusbcfg                                        ./build/axoloti.elf
@@ -982,6 +1140,53 @@ ch_debug                                          ./build/axoloti.elf
 chsnprintf                                        ./build/axoloti.elf
 chvprintf                                         ./build/axoloti.elf
 cleanup_glue                                      ./build/axoloti.elf
+clouds::Correlator::EvaluateNextCandidate()       ./build/axoloti.elf
+clouds::Correlator::Init(unsigned long*, unsigned long*) ./build/axoloti.elf
+clouds::Correlator::StartSearch(long, long, long) ./build/axoloti.elf
+clouds::FrameTransformation::AddGlitch(float*)    ./build/axoloti.elf
+clouds::FrameTransformation::Init(float*, long, long) ./build/axoloti.elf
+clouds::FrameTransformation::PolarToRectangular(float*) ./build/axoloti.elf
+clouds::FrameTransformation::Process(clouds::Parameters const&, float*, float*) ./build/axoloti.elf
+clouds::FrameTransformation::QuantizeMagnitudes(float*, float) ./build/axoloti.elf
+clouds::FrameTransformation::RectangularToPolar(float*) ./build/axoloti.elf
+clouds::FrameTransformation::ReplayMagnitudes(float*, float) ./build/axoloti.elf
+clouds::FrameTransformation::Reset()              ./build/axoloti.elf
+clouds::FrameTransformation::SetPhases(float*, float, float) ./build/axoloti.elf
+clouds::FrameTransformation::ShiftMagnitudes(float*, float*, float) ./build/axoloti.elf
+clouds::FrameTransformation::StoreMagnitudes(float*, float, float) ./build/axoloti.elf
+clouds::FrameTransformation::WarpMagnitudes(float*, float*, float) ./build/axoloti.elf
+clouds::GranularProcessor::GetPersistentData(clouds::PersistentBlock*, unsigned int*) ./build/axoloti.elf
+clouds::GranularProcessor::Init(void*, unsigned int, void*, unsigned int) ./build/axoloti.elf
+clouds::GranularProcessor::LoadPersistentData(unsigned long const*) ./build/axoloti.elf
+clouds::GranularProcessor::Prepare()              ./build/axoloti.elf
+clouds::GranularProcessor::PreparePersistentData() ./build/axoloti.elf
+clouds::GranularProcessor::Process(clouds::ShortFrame*, clouds::ShortFrame*, unsigned int) ./build/axoloti.elf
+clouds::GranularProcessor::ProcessGranular(clouds::FloatFrame*, clouds::FloatFrame*, unsigned int) ./build/axoloti.elf
+clouds::GranularProcessor::ResetFilters()         ./build/axoloti.elf
+clouds::PhaseVocoder::Buffer()                    ./build/axoloti.elf
+clouds::PhaseVocoder::Init(void**, unsigned int*, float const*, unsigned int, long, long, float) ./build/axoloti.elf
+clouds::PhaseVocoder::Process(clouds::Parameters const&, clouds::FloatFrame const*, clouds::FloatFrame*, unsigned int) ./build/axoloti.elf
+clouds::STFT::Buffer()                            ./build/axoloti.elf
+clouds::STFT::Init(stmlib::ShyFFT<float, 4096u, stmlib::RotationPhasor>*, unsigned int, unsigned int, float*, float*, float const*, short*, clouds::FrameTransformation*) ./build/axoloti.elf
+clouds::STFT::Process(clouds::Parameters const&, float const*, float*, unsigned int, unsigned int) ./build/axoloti.elf
+clouds::STFT::Reset()                             ./build/axoloti.elf
+clouds::lookup_table_int16_table                  ./build/axoloti.elf
+clouds::lookup_table_table                        ./build/axoloti.elf
+clouds::lut_cutoff                                ./build/axoloti.elf
+clouds::lut_db                                    ./build/axoloti.elf
+clouds::lut_grain_size                            ./build/axoloti.elf
+clouds::lut_quantized_pitch                       ./build/axoloti.elf
+clouds::lut_sin                                   ./build/axoloti.elf
+clouds::lut_sine_window_4096                      ./build/axoloti.elf
+clouds::lut_ulaw                                  ./build/axoloti.elf
+clouds::lut_window                                ./build/axoloti.elf
+clouds::lut_xfade_in                              ./build/axoloti.elf
+clouds::lut_xfade_out                             ./build/axoloti.elf
+clouds::src_filter_1x_2_31                        ./build/axoloti.elf
+clouds::src_filter_1x_2_45                        ./build/axoloti.elf
+clouds::src_filter_1x_2_63                        ./build/axoloti.elf
+clouds::src_filter_1x_2_91                        ./build/axoloti.elf
+clouds::src_filter_table                          ./build/axoloti.elf
 clust2sect                                        ./build/axoloti.elf
 codecStop                                         ./build/axoloti.elf
 codec_ADAU1961_Stop                               ./build/axoloti.elf
@@ -1009,6 +1214,59 @@ dmaStreamAllocate                                 ./build/axoloti.elf
 dmaStreamRelease                                  ./build/axoloti.elf
 do_axoloti_control                                ./build/axoloti.elf
 dspLoadPct                                        ./build/axoloti.elf
+elements::Exciter::GetPulseAmplitude(float)       ./build/axoloti.elf
+elements::Exciter::Init()                         ./build/axoloti.elf
+elements::Exciter::Process(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::ProcessFlow(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::ProcessGranularSamplePlayer(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::ProcessMallet(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::ProcessNoise(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::ProcessParticles(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::ProcessPlectrum(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::ProcessSamplePlayer(unsigned char, float*, unsigned int) ./build/axoloti.elf
+elements::Exciter::fn_table_                      ./build/axoloti.elf
+elements::FmOscillator::Process(float, float, float, float, float const*, float*, unsigned int) ./build/axoloti.elf
+elements::MultistageEnvelope::Init()              ./build/axoloti.elf
+elements::OminousVoice::ConfigureEnvelope(elements::Patch const&) ./build/axoloti.elf
+elements::OminousVoice::Init()                    ./build/axoloti.elf
+elements::OminousVoice::Process(elements::Patch const&, float, float, bool, float const*, float const*, float*, float*, float*, unsigned int) ./build/axoloti.elf
+elements::Part::Init(unsigned short*)             ./build/axoloti.elf
+elements::Part::Process(elements::PerformanceState const&, float const*, float const*, float*, float*, unsigned int) ./build/axoloti.elf
+elements::Part::Seed(unsigned long*, unsigned int) ./build/axoloti.elf
+elements::Resonator::ComputeFilters()             ./build/axoloti.elf
+elements::Resonator::Init()                       ./build/axoloti.elf
+elements::Resonator::Process(float const*, float const*, float*, float*, unsigned int) ./build/axoloti.elf
+elements::Spatializer::Init(float)                ./build/axoloti.elf
+elements::Spatializer::Process(float*, float*, float*, unsigned int) ./build/axoloti.elf
+elements::String::Init(bool)                      ./build/axoloti.elf
+elements::String::Process(float const*, float*, float*, unsigned int) ./build/axoloti.elf
+elements::Tube::Init()                            ./build/axoloti.elf
+elements::Tube::Process(float, float, float, float, float*, float, unsigned int) ./build/axoloti.elf
+elements::Voice::Init()                           ./build/axoloti.elf
+elements::Voice::Process(elements::Patch const&, float, float, bool, float const*, float const*, float*, float*, float*, unsigned int) ./build/axoloti.elf
+elements::Voice::ResetResonator()                 ./build/axoloti.elf
+elements::chords                                  ./build/axoloti.elf
+elements::lookup_table_int16_table                ./build/axoloti.elf
+elements::lookup_table_table                      ./build/axoloti.elf
+elements::lookup_table_uint32_table               ./build/axoloti.elf
+elements::lut_accent_gain_coarse                  ./build/axoloti.elf
+elements::lut_accent_gain_fine                    ./build/axoloti.elf
+elements::lut_approx_svf_g                        ./build/axoloti.elf
+elements::lut_approx_svf_gain                     ./build/axoloti.elf
+elements::lut_approx_svf_h                        ./build/axoloti.elf
+elements::lut_approx_svf_r                        ./build/axoloti.elf
+elements::lut_db_led_brightness                   ./build/axoloti.elf
+elements::lut_detune_quantizer                    ./build/axoloti.elf
+elements::lut_env_expo                            ./build/axoloti.elf
+elements::lut_env_increments                      ./build/axoloti.elf
+elements::lut_env_linear                          ./build/axoloti.elf
+elements::lut_env_quartic                         ./build/axoloti.elf
+elements::lut_midi_to_f_high                      ./build/axoloti.elf
+elements::lut_midi_to_f_low                       ./build/axoloti.elf
+elements::lut_midi_to_increment_high              ./build/axoloti.elf
+elements::sample_boundary_table                   ./build/axoloti.elf
+elements::sample_table                            ./build/axoloti.elf
+elements::smp_boundaries                          ./build/axoloti.elf
 errno                                             ./build/axoloti.elf
 errorFlagClearAll                                 ./build/axoloti.elf
 errorflags                                        ./build/axoloti.elf
@@ -1024,7 +1282,6 @@ f_chdrive                                         ./build/axoloti.elf
 f_chmod                                           ./build/axoloti.elf
 f_close                                           ./build/axoloti.elf
 f_filter_biquad_A                                 ./build/axoloti.elf
-f_filter_biquad_S                                 ./build/axoloti.elf
 f_getcwd                                          ./build/axoloti.elf
 f_getfree                                         ./build/axoloti.elf
 f_lseek                                           ./build/axoloti.elf
@@ -1047,7 +1304,6 @@ fabsf                                             ./build/axoloti.elf
 fakefree                                          ./build/axoloti.elf
 fakemalloc                                        ./build/axoloti.elf
 fbuff                                             ./build/axoloti.elf
-fexp                                              ./build/axoloti.elf
 ff_convert                                        ./build/axoloti.elf
 ff_cre_syncobj                                    ./build/axoloti.elf
 ff_del_syncobj                                    ./build/axoloti.elf
@@ -1068,7 +1324,6 @@ floorf                                            ./build/axoloti.elf
 font                                              ./build/axoloti.elf
 fs_err_name                                       ./build/axoloti.elf
 fs_ready                                          ./build/axoloti.elf
-fsini                                             ./build/axoloti.elf
 fwid                                              ./build/axoloti.elf
 gen_numname                                       ./build/axoloti.elf
 getErrorFlag                                      ./build/axoloti.elf
@@ -1098,7 +1353,6 @@ i2c_lld_master_transmit_timeout                   ./build/axoloti.elf
 i2c_lld_start                                     ./build/axoloti.elf
 i2c_lld_stop                                      ./build/axoloti.elf
 init_filter_biquad_A                              ./build/axoloti.elf
-init_filter_biquad_S                              ./build/axoloti.elf
 inttohex                                          ./build/axoloti.elf
 isEnabled                                         ./build/axoloti.elf
 isValidInput                                      ./build/axoloti.elf
@@ -1113,7 +1367,9 @@ keybd_info                                        ./build/axoloti.elf
 keybd_report_data                                 ./build/axoloti.elf
 lcd_buffer                                        ./build/axoloti.elf
 led_buffer                                        ./build/axoloti.elf
-localeconv                                        ./build/axoloti.elf
+loadElementsData                                  ./build/axoloti.elf
+loadFName                                         ./build/axoloti.elf
+loadPatchIndex                                    ./build/axoloti.elf
 log                                               ./build/axoloti.elf
 logt                                              ./build/axoloti.elf
 main                                              ./build/axoloti.elf
@@ -1128,13 +1384,13 @@ mduStart                                          ./build/axoloti.elf
 mduStop                                           ./build/axoloti.elf
 mem                                               ./build/axoloti.elf
 memTest                                           ./build/axoloti.elf
-memchr                                            ./build/axoloti.elf
 memcpy                                            ./build/axoloti.elf
 memmove                                           ./build/axoloti.elf
 memp                                              ./build/axoloti.elf
 memset                                            ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 memused                                           ./build/axoloti.elf
+merge_rfft_f32                                    ./build/axoloti.elf
 midi_init                                         ./build/axoloti.elf
 midi_usb_MidiSend1                                ./build/axoloti.elf
 midi_usb_MidiSend2                                ./build/axoloti.elf
@@ -1144,6 +1400,11 @@ mmcsdGetCapacity                                  ./build/axoloti.elf
 mouse_info                                        ./build/axoloti.elf
 mouse_report_data                                 ./build/axoloti.elf
 msObjectInit                                      ./build/axoloti.elf
+mutable_resources::lut_4_decades                  ./build/axoloti.elf
+mutable_resources::lut_fm_frequency_quantizer     ./build/axoloti.elf
+mutable_resources::lut_sine                       ./build/axoloti.elf
+mutable_resources::lut_stiffness                  ./build/axoloti.elf
+mutable_resources::lut_svf_shift                  ./build/axoloti.elf
 nan                                               ./build/axoloti.elf
 nanf                                              ./build/axoloti.elf
 nvicDisableVector                                 ./build/axoloti.elf
@@ -1157,12 +1418,12 @@ palSetBusMode                                     ./build/axoloti.elf
 palWriteBus                                       ./build/axoloti.elf
 pal_default_config                                ./build/axoloti.elf
 patchMeta                                         ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 patchStatus                                       ./build/axoloti.elf
 pattern                                           ./build/axoloti.elf
 pattern_index                                     ./build/axoloti.elf
 pitcht                                            ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 port_halt                                         ./build/axoloti.elf
 pow                                               ./build/axoloti.elf
 powf                                              ./build/axoloti.elf
@@ -1180,21 +1441,32 @@ pwm_lld_enable_channel                            ./build/axoloti.elf
 pwm_lld_init                                      ./build/axoloti.elf
 pwm_lld_start                                     ./build/axoloti.elf
 pwm_lld_stop                                      ./build/axoloti.elf
+raise                                             ./build/axoloti.elf
 rbuf                                              ./build/axoloti.elf
 rbuf2                                             ./build/axoloti.elf
+realCoefAQ15                                      ./build/axoloti.elf
+realCoefAQ31                                      ./build/axoloti.elf
+realCoefBQ15                                      ./build/axoloti.elf
+realCoefBQ31                                      ./build/axoloti.elf
 repeat                                            ./build/axoloti.elf
 report_exception                                  ./build/axoloti.elf
 report_fatfs_error                                ./build/axoloti.elf
 report_patchLoadFail                              ./build/axoloti.elf
+report_patchLoadSDRamOverflow                     ./build/axoloti.elf
+report_usbh_midi_ringbuffer_overflow              ./build/axoloti.elf
+restore_core_regs                                 ./build/axoloti.elf
 revbit                                            ./build/axoloti.elf
+rings::lookup_table_int16_table                   ./build/axoloti.elf
+rings::lookup_table_table                         ./build/axoloti.elf
+rings::lookup_table_uint32_table                  ./build/axoloti.elf
 rint                                              ./build/axoloti.elf
 rlist                                             ./build/axoloti.elf
-rootc::GetInitParams()::p                         /Users/mackemint/Documents/axoloti/build/xpatch.o
-rootc::GetPresets()::p                            /Users/mackemint/Documents/axoloti/build/xpatch.o
-rootc::Init()                                     /Users/mackemint/Documents/axoloti/build/xpatch.o
-rootc::dsp()                                      /Users/mackemint/Documents/axoloti/build/xpatch.o
-rootc::dsp()::zerobuffer                          /Users/mackemint/Documents/axoloti/build/xpatch.o
-rootc::instanceSubOscillator__1::dsp(long (&) [16], long&)::zerobuffer /Users/mackemint/Documents/axoloti/build/xpatch.o
+rootc::GetInitParams()::p                         C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+rootc::GetPresets()::p                            C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+rootc::Init()                                     C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+rootc::dsp()                                      C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+rootc::dsp()::zerobuffer                          C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+rootc::instanceSubOscillator__1::dsp(long (&) [16], bool&)::zerobuffer C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 row_update_index                                  ./build/axoloti.elf
 sai_a                                             ./build/axoloti.elf
 sai_a_dma                                         ./build/axoloti.elf
@@ -1243,9 +1515,14 @@ sdc_lld_write                                     ./build/axoloti.elf
 sdc_lld_write_aligned                             ./build/axoloti.elf
 sdcard_attemptMountIfUnmounted                    ./build/axoloti.elf
 sdcard_init                                       ./build/axoloti.elf
-sdcard_loadPatch                                  ./build/axoloti.elf
+sdcard_loadPatch1                                 ./build/axoloti.elf
 sdcard_unmount                                    ./build/axoloti.elf
 sdcsw_prev                                        ./build/axoloti.elf
+sdram_free                                        ./build/axoloti.elf
+sdram_get_free                                    ./build/axoloti.elf
+sdram_init                                        ./build/axoloti.elf
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+sdram_malloc                                      ./build/axoloti.elf
 serial_MidiGetOutputBufferPending                 ./build/axoloti.elf
 serial_MidiInByteHandler                          ./build/axoloti.elf
 serial_MidiSend1                                  ./build/axoloti.elf
@@ -1253,12 +1530,12 @@ serial_MidiSend2                                  ./build/axoloti.elf
 serial_MidiSend3                                  ./build/axoloti.elf
 serial_midi_init                                  ./build/axoloti.elf
 setErrorFlag                                      ./build/axoloti.elf
-setlocale                                         ./build/axoloti.elf
+signal                                            ./build/axoloti.elf
 sinTable_f32                                      ./build/axoloti.elf
 sinTable_q15                                      ./build/axoloti.elf
 sinTable_q31                                      ./build/axoloti.elf
 sine2t                                            ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 sinet                                             ./build/axoloti.elf
 sinf                                              ./build/axoloti.elf
 spiAcquireBus                                     ./build/axoloti.elf
@@ -1287,32 +1564,107 @@ spi_lld_send                                      ./build/axoloti.elf
 spi_lld_start                                     ./build/axoloti.elf
 spi_lld_stop                                      ./build/axoloti.elf
 spi_lld_unselect                                  ./build/axoloti.elf
-sprintf                                           ./build/axoloti.elf
+stage_rfft_f32                                    ./build/axoloti.elf
 start_dsp_thread                                  ./build/axoloti.elf
 stm32_clock_init                                  ./build/axoloti.elf
+stmlib::Random::rng_state_                        ./build/axoloti.elf
+stmlib::ShyFFT<float, 4096u, stmlib::RotationPhasor>::bit_rev_256_lut_ ./build/axoloti.elf
+stmlib::atan_lut                                  ./build/axoloti.elf
+stmlib::lut_pitch_ratio_high                      ./build/axoloti.elf
+stmlib::lut_pitch_ratio_low                       ./build/axoloti.elf
 stpcpy                                            ./build/axoloti.elf
-strcmp                                            ./build/axoloti.elf
 strcpy                                            ./build/axoloti.elf
+streams::Compressor::Compress(long, long, long, bool) ./build/axoloti.elf
+streams::Compressor::Exp2(long)                   ./build/axoloti.elf
+streams::Compressor::Init()                       ./build/axoloti.elf
+streams::Compressor::Log2(long)                   ./build/axoloti.elf
+streams::Compressor::Process(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Envelope::Init()                         ./build/axoloti.elf
+streams::Envelope::Process(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Follower::Init()                         ./build/axoloti.elf
+streams::Follower::Process(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::LorenzGenerator::Init()                  ./build/axoloti.elf
+streams::LorenzGenerator::Process(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Processor::CompressorConfigure(bool, long*, long*) ./build/axoloti.elf
+streams::Processor::CompressorInit()              ./build/axoloti.elf
+streams::Processor::CompressorProcess(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Processor::EnvelopeConfigure(bool, long*, long*) ./build/axoloti.elf
+streams::Processor::EnvelopeInit()                ./build/axoloti.elf
+streams::Processor::EnvelopeProcess(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Processor::FilterControllerConfigure(bool, long*, long*) ./build/axoloti.elf
+streams::Processor::FilterControllerInit()        ./build/axoloti.elf
+streams::Processor::FilterControllerProcess(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Processor::FollowerConfigure(bool, long*, long*) ./build/axoloti.elf
+streams::Processor::FollowerInit()                ./build/axoloti.elf
+streams::Processor::FollowerProcess(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Processor::Init(unsigned char)           ./build/axoloti.elf
+streams::Processor::LorenzGeneratorConfigure(bool, long*, long*) ./build/axoloti.elf
+streams::Processor::LorenzGeneratorInit()         ./build/axoloti.elf
+streams::Processor::LorenzGeneratorProcess(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Processor::VactrolConfigure(bool, long*, long*) ./build/axoloti.elf
+streams::Processor::VactrolInit()                 ./build/axoloti.elf
+streams::Processor::VactrolProcess(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::Processor::callbacks_table_              ./build/axoloti.elf
+streams::Svf::Init()                              ./build/axoloti.elf
+streams::Svf::Process(long)                       ./build/axoloti.elf
+streams::Vactrol::Init()                          ./build/axoloti.elf
+streams::Vactrol::Process(short, short, unsigned short*, unsigned short*) ./build/axoloti.elf
+streams::lookup_table_32_table                    ./build/axoloti.elf
+streams::lookup_table_table                       ./build/axoloti.elf
+streams::lut_2164_gain                            ./build/axoloti.elf
+streams::lut_compressor_ratio                     ./build/axoloti.elf
+streams::lut_env_expo                             ./build/axoloti.elf
+streams::lut_env_increments                       ./build/axoloti.elf
+streams::lut_env_linear                           ./build/axoloti.elf
+streams::lut_env_quartic                          ./build/axoloti.elf
+streams::lut_exp2                                 ./build/axoloti.elf
+streams::lut_log2                                 ./build/axoloti.elf
+streams::lut_lorenz_rate                          ./build/axoloti.elf
+streams::lut_lp_coefficients                      ./build/axoloti.elf
+streams::lut_soft_knee                            ./build/axoloti.elf
+streams::lut_square_root                          ./build/axoloti.elf
+streams::lut_svf_cutoff                           ./build/axoloti.elf
+streams::lut_svf_damp                             ./build/axoloti.elf
+streams::string_table                             ./build/axoloti.elf
+streams::wav_db                                   ./build/axoloti.elf
+streams::wav_gompertz                             ./build/axoloti.elf
+streams::waveforms_table                          ./build/axoloti.elf
 strlen                                            ./build/axoloti.elf
 sysmon_blink_pattern                              ./build/axoloti.elf
 sysmon_disable_blinker                            ./build/axoloti.elf
-                                                  /Users/mackemint/Documents/axoloti/build/xpatch.o
+                                                  C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
 sysmon_enable_blinker                             ./build/axoloti.elf
 sysmon_getVoltage10                               ./build/axoloti.elf
 sysmon_getVoltage50                               ./build/axoloti.elf
 sysmon_init                                       ./build/axoloti.elf
 terminator                                        ./build/axoloti.elf
-twiddleCoefQ15                                    ./build/axoloti.elf
-twiddleCoefQ31                                    ./build/axoloti.elf
 twiddleCoef_1024                                  ./build/axoloti.elf
+twiddleCoef_1024_q15                              ./build/axoloti.elf
+twiddleCoef_1024_q31                              ./build/axoloti.elf
 twiddleCoef_128                                   ./build/axoloti.elf
+twiddleCoef_128_q15                               ./build/axoloti.elf
+twiddleCoef_128_q31                               ./build/axoloti.elf
 twiddleCoef_16                                    ./build/axoloti.elf
+twiddleCoef_16_q15                                ./build/axoloti.elf
+twiddleCoef_16_q31                                ./build/axoloti.elf
 twiddleCoef_2048                                  ./build/axoloti.elf
+twiddleCoef_2048_q15                              ./build/axoloti.elf
+twiddleCoef_2048_q31                              ./build/axoloti.elf
 twiddleCoef_256                                   ./build/axoloti.elf
+twiddleCoef_256_q15                               ./build/axoloti.elf
+twiddleCoef_256_q31                               ./build/axoloti.elf
 twiddleCoef_32                                    ./build/axoloti.elf
+twiddleCoef_32_q15                                ./build/axoloti.elf
+twiddleCoef_32_q31                                ./build/axoloti.elf
 twiddleCoef_4096                                  ./build/axoloti.elf
+twiddleCoef_4096_q15                              ./build/axoloti.elf
+twiddleCoef_4096_q31                              ./build/axoloti.elf
 twiddleCoef_512                                   ./build/axoloti.elf
+twiddleCoef_512_q15                               ./build/axoloti.elf
+twiddleCoef_512_q31                               ./build/axoloti.elf
 twiddleCoef_64                                    ./build/axoloti.elf
+twiddleCoef_64_q15                                ./build/axoloti.elf
+twiddleCoef_64_q31                                ./build/axoloti.elf
 twiddleCoef_rfft_1024                             ./build/axoloti.elf
 twiddleCoef_rfft_128                              ./build/axoloti.elf
 twiddleCoef_rfft_2048                             ./build/axoloti.elf
@@ -1361,14 +1713,20 @@ usbh_MidiSend1                                    ./build/axoloti.elf
 usbh_MidiSend2                                    ./build/axoloti.elf
 usbh_MidiSend3                                    ./build/axoloti.elf
 usbh_MidiSendSysEx                                ./build/axoloti.elf
+usbh_midi_deinit_buffer                           ./build/axoloti.elf
 usbh_midi_init                                    ./build/axoloti.elf
+usbh_midi_init_buffer                             ./build/axoloti.elf
 usbh_midi_reset_buffer                            ./build/axoloti.elf
 v50_max                                           ./build/axoloti.elf
 v50_min                                           ./build/axoloti.elf
+void clouds::GranularSamplePlayer::Play<(clouds::Resolution)0>(clouds::AudioBuffer<(clouds::Resolution)0> const*, clouds::Parameters const&, float*, unsigned int) ./build/axoloti.elf
+void clouds::GranularSamplePlayer::Play<(clouds::Resolution)3>(clouds::AudioBuffer<(clouds::Resolution)3> const*, clouds::Parameters const&, float*, unsigned int) ./build/axoloti.elf
+void elements::String::ProcessInternal<false>(float const*, float*, float*, unsigned int) ./build/axoloti.elf
+void elements::String::ProcessInternal<true>(float const*, float*, float*, unsigned int) ./build/axoloti.elf
 voltage_50                                        ./build/axoloti.elf
 vtlist                                            ./build/axoloti.elf
 watchdog_feed                                     ./build/axoloti.elf
 watchdog_init                                     ./build/axoloti.elf
 windowt                                           ./build/axoloti.elf
-xpatch_init                                       /Users/mackemint/Documents/axoloti/build/xpatch.o
-xpatch_init2(int)                                 /Users/mackemint/Documents/axoloti/build/xpatch.o
+xpatch_init                                       C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o
+xpatch_init2(int)                                 C:\Users\macke\DOCUME~1\axoloti/build/xpatch.o

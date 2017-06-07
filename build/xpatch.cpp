@@ -1,5 +1,4 @@
-extern "C" { 
-}
+
 #pragma GCC diagnostic ignored "-Wunused-variable"
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #define MIDICHANNEL 0 // DEPRECATED!
@@ -135,40 +134,39 @@ outlet_out= inlet_in1-inlet_in2 ;
   public: // v1
   instanceKickEnv__1 *parent;
 uint8_t _gate;
-          uint8_t _velo;
-          uint8_t _rvelo;
-          
+uint8_t _velo;
+uint8_t _rvelo;
+
   public: void Init(instanceKickEnv__1 * _parent) {
 parent = _parent;
 _gate = 0;
-          
+
 }
   public: void Dispose() {
 }
-  public: void dsp (int32_t  & outlet_gate,
+  public: void dsp (bool  & outlet_gate,
 int32_t  & outlet_velocity,
 int32_t  & outlet_releaseVelocity  ){
 outlet_gate= _gate<<27;
-          outlet_velocity= _velo<<20;
-          outlet_releaseVelocity= _rvelo<<20;
-          
+outlet_velocity= _velo<<20;
+outlet_releaseVelocity= _rvelo<<20;
+
 }
 void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data1, uint8_t data2) {
 {
-if ((status == MIDI_NOTE_ON + 9) && (data2)) {if (data1 == 37) {
-             _velo = data2;
-             _gate = 1;
-          }
-          } else if (((status == MIDI_NOTE_ON + 9) && (!data2))||          (status == MIDI_NOTE_OFF + 9)) {
-            if (data1 == 37) {
-              _rvelo = data2;
-              _gate = 0;
-            }
-          } else if ((status == 9 + MIDI_CONTROL_CHANGE)&&(data1 == MIDI_C_ALL_NOTES_OFF)) {
-            _gate = 0;
-          }
-          
-      }
+if ((status == MIDI_NOTE_ON + 9) && (data2)) {if (data1 == 64) {
+   _velo = data2;
+   _gate = 1;
+}
+} else if (((status == MIDI_NOTE_ON + 9) && (!data2))||          (status == MIDI_NOTE_OFF + 9)) {
+  if (data1 == 64) {
+    _rvelo = data2;
+    _gate = 0;
+  }
+} else if ((status == 9 + MIDI_CONTROL_CHANGE)&&(data1 == MIDI_C_ALL_NOTES_OFF)) {
+  _gate = 0;
+}
+}
 }
 }
 ;class instanceahd__1{
@@ -191,7 +189,7 @@ val = 0;
 }
   public: void Dispose() {
 }
-  public: void dsp (const int32_t  inlet_trig,
+  public: void dsp (const bool  inlet_trig,
 int32_t  & outlet_env,
 int param_a,
 int param_d  ){
@@ -663,7 +661,7 @@ parent->PExch[PARAM_INDEX_KickEnv__1_Threshold].finalvalue = (int32_t)(&(parent-
   public: void dsp (int32_t  & outlet_outlet__1  ){
 int i; /*...*/
 //--------- <nets> -----------//
-    int32_t  net0;
+    bool  net0;
     int32_t  net1;
     int32_t  net2;
     int32_t  net3;
@@ -698,10 +696,10 @@ net4Latch = net4;
 }
 void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data1, uint8_t data2) {
 {
-if ( 0 > 0 && dev > 0 && 0 != dev) return;
+if ( 1 > 0 && dev > 0 && 1 != dev) return;
 if ( 0 > 0 && port > 0 && 0 != port) return;
 instancekeyb__1_i.MidiInHandler(dev, port, status, data1, data2);
-        if ((status == 0 + MIDI_CONTROL_CHANGE)&&(data1 == 3)) {
+        if ((status == 9 + MIDI_CONTROL_CHANGE)&&(data1 == 3)) {
             PExParameterChange(&parent->PExch[PARAM_INDEX_KickEnv__1_Threshold],(data2!=127)?data2<<20:0x07FFFFFF, 0xFFFD);
         }
 }
@@ -809,6 +807,32 @@ int param_hysteresis  ){
     sum -= ((((nextvoice+1)&1)<<1)-1)<<13;
     outlet_out[j]=sum<<13;
   }
+}
+}
+;class instancevca__1{
+  public: // v1
+  rootc *parent;
+   int32_t prev;
+    int32_t step;
+
+  public: void Init(rootc * _parent) {
+parent = _parent;
+}
+  public: void Dispose() {
+}
+  public: void dsp (const int32_t  inlet_v,
+const int32buffer  inlet_a,
+int32buffer  & outlet_o  ){
+   step = (inlet_v - prev)>>4;
+   int32_t i = prev;
+   prev = inlet_v;
+
+int buffer_index;
+for(buffer_index=0;buffer_index<BUFSIZE;buffer_index++) {
+   outlet_o[buffer_index] =  ___SMMUL(inlet_a[buffer_index],i)<<5;
+   i += step;
+
+}
 }
 }
 ;class instancexfade__1{
@@ -997,7 +1021,7 @@ parent = _parent;
 }
   public: void dsp (const int32_t  inlet_in1,
 const int32_t  inlet_in2,
-int32_t  & outlet_out  ){
+bool  & outlet_out  ){
 outlet_out= inlet_in1>inlet_in2 ;
 }
 }
@@ -1038,7 +1062,7 @@ val = 0;
 }
   public: void Dispose() {
 }
-  public: void dsp (const int32_t  inlet_trig,
+  public: void dsp (const bool  inlet_trig,
 const int32_t  inlet_a,
 const int32_t  inlet_d,
 int32_t  & outlet_env,
@@ -1550,7 +1574,7 @@ int i; /*...*/
     int32_t  net1;
     int32_t  net2;
     int32_t  net3;
-    int32_t  net4;
+    bool  net4;
     int32_t  net5;
     int32_t  net6;
     int32buffer  net7;
@@ -1691,6 +1715,31 @@ disp_vuRight=inlet_right[0];
 
 }
 }
+;class instancexfade__2{
+  public: // v1
+  rootc *parent;
+  public: void Init(rootc * _parent) {
+parent = _parent;
+}
+  public: void Dispose() {
+}
+  public: void dsp (const int32buffer  inlet_i1,
+const int32buffer  inlet_i2,
+const int32_t  inlet_c,
+int32buffer  & outlet_o  ){
+   int32_t ccompl = ((128<<20)-inlet_c);
+
+int buffer_index;
+for(buffer_index=0;buffer_index<BUFSIZE;buffer_index++) {
+   {
+      int64_t a = (int64_t)inlet_i2[buffer_index] * inlet_c;
+      a += (int64_t)inlet_i1[buffer_index] * ccompl;
+      outlet_o[buffer_index]= a>>27;
+   }
+
+}
+}
+}
 ;class instanceschmitttrigger__2{
   public: // v1
   rootc *parent;
@@ -1746,27 +1795,28 @@ int param_hysteresis  ){
   }
 }
 }
-;class instancexfade__2{
+;class instancevca__2{
   public: // v1
   rootc *parent;
+   int32_t prev;
+    int32_t step;
+
   public: void Init(rootc * _parent) {
 parent = _parent;
 }
   public: void Dispose() {
 }
-  public: void dsp (const int32buffer  inlet_i1,
-const int32buffer  inlet_i2,
-const int32_t  inlet_c,
+  public: void dsp (const int32_t  inlet_v,
+const int32buffer  inlet_a,
 int32buffer  & outlet_o  ){
-   int32_t ccompl = ((128<<20)-inlet_c);
+   step = (inlet_v - prev)>>4;
+   int32_t i = prev;
+   prev = inlet_v;
 
 int buffer_index;
 for(buffer_index=0;buffer_index<BUFSIZE;buffer_index++) {
-   {
-      int64_t a = (int64_t)inlet_i2[buffer_index] * inlet_c;
-      a += (int64_t)inlet_i1[buffer_index] * ccompl;
-      outlet_o[buffer_index]= a>>27;
-   }
+   outlet_o[buffer_index] =  ___SMMUL(inlet_a[buffer_index],i)<<5;
+   i += step;
 
 }
 }
@@ -1825,6 +1875,19 @@ for(j=0;j<BUFSIZE;j++){
 }
 disp_vuLeft=outlet_left[0];
 disp_vuRight=outlet_right[0];
+
+}
+}
+;class instancec__1{
+  public: // v1
+  rootc *parent;
+  public: void Init(rootc * _parent) {
+parent = _parent;
+}
+  public: void Dispose() {
+}
+  public: void dsp (int32_t & outlet_o  ){
+outlet_o= 16;
 
 }
 }
@@ -1897,6 +1960,33 @@ for(buffer_index=0;buffer_index<BUFSIZE;buffer_index++) {
 ;   outlet_out[buffer_index]=  __SSAT(inlet_bus__in[buffer_index] + (accum<<1),28);
 
 }
+}
+}
+;class instance_dash___1{
+  public: // v1
+  rootc *parent;
+  public: void Init(rootc * _parent) {
+parent = _parent;
+}
+  public: void Dispose() {
+}
+  public: void dsp (const int32_t  inlet_in1,
+const int32_t  inlet_in2,
+int32_t  & outlet_out  ){
+outlet_out= inlet_in1-inlet_in2 ;
+}
+}
+;class instancediv__1{
+  public: // v1
+  rootc *parent;
+  public: void Init(rootc * _parent) {
+parent = _parent;
+}
+  public: void Dispose() {
+}
+  public: void dsp (const int32_t  inlet_in,
+int32_t  & outlet_out  ){
+outlet_out= inlet_in>>4;
 }
 }
 ;class instancedial__2{
@@ -2067,7 +2157,7 @@ parent = _parent;
 }
   public: void dsp (const int32_t  inlet_in1,
 const int32_t  inlet_in2,
-int32_t  & outlet_out  ){
+bool  & outlet_out  ){
 outlet_out= inlet_in1>inlet_in2 ;
 }
 }
@@ -2108,7 +2198,7 @@ val = 0;
 }
   public: void Dispose() {
 }
-  public: void dsp (const int32_t  inlet_trig,
+  public: void dsp (const bool  inlet_trig,
 const int32_t  inlet_a,
 const int32_t  inlet_d,
 int32_t  & outlet_env,
@@ -2620,7 +2710,7 @@ int i; /*...*/
     int32_t  net1;
     int32_t  net2;
     int32_t  net3;
-    int32_t  net4;
+    bool  net4;
     int32_t  net5;
     int32_t  net6;
     int32buffer  net7;
@@ -2726,7 +2816,7 @@ parent = _parent;
 }
   public: void dsp (const int32_t  inlet_i1,
 const int32_t  inlet_i2,
-const int32_t  inlet_s,
+const bool  inlet_s,
 int32_t  & outlet_o  ){
    outlet_o= (inlet_s)?inlet_i2:inlet_i1;
 
@@ -2782,7 +2872,7 @@ _note = 0;
   public: void Dispose() {
 }
   public: void dsp (int32_t  & outlet_note,
-int32_t  & outlet_gate,
+bool  & outlet_gate,
 int32_t  & outlet_velocity,
 int32_t  & outlet_releaseVelocity  ){
 outlet_note= _note<<21;
@@ -2793,18 +2883,18 @@ outlet_releaseVelocity= _rvelo<<20;
 }
 void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data1, uint8_t data2) {
 {
-if ((status == MIDI_NOTE_ON + 2) && (data2)) {
+if ((status == MIDI_NOTE_ON + 6) && (data2)) {
   if ((data1 >= 0)&&(data1 <= 55)) {
     _velo = data2;
     _note = data1-64;
     _gate = 1;
   }
-} else if (((status == MIDI_NOTE_ON + 2) && (!data2))||          (status == MIDI_NOTE_OFF + 2)) {
+} else if (((status == MIDI_NOTE_ON + 6) && (!data2))||          (status == MIDI_NOTE_OFF + 6)) {
   if (_note == data1-64) {
     _rvelo = data2;
     _gate = 0;
   }
-} else if ((status == 2 + MIDI_CONTROL_CHANGE)&&(data1 == MIDI_C_ALL_NOTES_OFF)) {
+} else if ((status == 6 + MIDI_CONTROL_CHANGE)&&(data1 == MIDI_C_ALL_NOTES_OFF)) {
    _gate = 0;
 }
 }
@@ -2854,7 +2944,7 @@ _note = 0;
   public: void Dispose() {
 }
   public: void dsp (int32_t  & outlet_note,
-int32_t  & outlet_gate,
+bool  & outlet_gate,
 int32_t  & outlet_velocity,
 int32_t  & outlet_releaseVelocity  ){
 outlet_note= _note<<21;
@@ -2865,18 +2955,18 @@ outlet_releaseVelocity= _rvelo<<20;
 }
 void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data1, uint8_t data2) {
 {
-if ((status == MIDI_NOTE_ON + 2) && (data2)) {
+if ((status == MIDI_NOTE_ON + 6) && (data2)) {
   if ((data1 >= 56)&&(data1 <= 127)) {
     _velo = data2;
     _note = data1-64;
     _gate = 1;
   }
-} else if (((status == MIDI_NOTE_ON + 2) && (!data2))||          (status == MIDI_NOTE_OFF + 2)) {
+} else if (((status == MIDI_NOTE_ON + 6) && (!data2))||          (status == MIDI_NOTE_OFF + 6)) {
   if (_note == data1-64) {
     _rvelo = data2;
     _gate = 0;
   }
-} else if ((status == 2 + MIDI_CONTROL_CHANGE)&&(data1 == MIDI_C_ALL_NOTES_OFF)) {
+} else if ((status == 6 + MIDI_CONTROL_CHANGE)&&(data1 == MIDI_C_ALL_NOTES_OFF)) {
    _gate = 0;
 }
 }
@@ -2892,7 +2982,7 @@ parent = _parent;
 }
   public: void Dispose() {
 }
-  public: void dsp (const int32_t  inlet_outlet  ){
+  public: void dsp (const bool  inlet_outlet  ){
   _outlet = inlet_outlet;
 
 }
@@ -2911,59 +3001,6 @@ int32_t  & outlet_out  ){
 outlet_out= inlet_in1+inlet_in2 ;
 }
 }
-;class instancemidithru__1{
-  public: // v1
-  instanceSubOscillator__1 *parent;
-
-int 		flash_cnt=0;
-bool 	flash_state = false;
-const int FLASH_LEN = 0x100;
-
-  public: void Init(instanceSubOscillator__1 * _parent) {
-parent = _parent;
-
-        if(true) {
-        sysmon_disable_blinker();
-        palSetPadMode(LED2_PORT,LED2_PIN,PAL_MODE_OUTPUT_PUSHPULL);
-}
-flash_cnt = 0;
-flash_state = false;
-}
-  public: void Dispose() {
-}
-  public: void dsp (  ){
-
-        if(true) {
-	if(flash_cnt > 0) flash_cnt--;
-	bool fs = flash_cnt > 0;
-	if(fs!=flash_state) {
-		palWritePad(LED2_PORT,LED2_PIN,fs);
-		flash_state = fs;
-	}
-    }
-   
-}
-void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data1, uint8_t data2) {
-{
-
-        if(dev == MIDI_DEVICE_DIN && port == 1) {
-        uint8_t status_type = status & 0xF0;
-            if ((status_type == MIDI_CONTROL_CHANGE) ||
-                (status_type == MIDI_NOTE_OFF) ||
-                (status_type == MIDI_NOTE_ON) ||
-                (status_type == MIDI_POLY_PRESSURE) ||
-                (status_type == MIDI_PITCH_BEND)) {
-                    MidiSend3((midi_device_t) MIDI_DEVICE_DIN, 1,status,data1,data2);
-                    flash_cnt = FLASH_LEN;
-            } else if ( (status_type == MIDI_PROGRAM_CHANGE) ||
-                        (status_type == MIDI_CHANNEL_PRESSURE)) {
-                MidiSend2((midi_device_t) MIDI_DEVICE_DIN, 1,status,data1);
-                flash_cnt = FLASH_LEN;
-            }
-        }
-    }
-}
-}
 ;/* controller instances */
 /* object instances */
      instanceSubOscOut instanceSubOscOut_i;
@@ -2975,9 +3012,8 @@ void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data
      instancekeyb__1 instancekeyb__1_i;
      instanceGateOut instanceGateOut_i;
      instance_plus___2 instance_plus___2_i;
-     instancemidithru__1 instancemidithru__1_i;
 /* net latches */
-    int32_t  net0Latch;
+    bool  net0Latch;
     int32_t  net1Latch;
     int32_t net2Latch;
     int32_t  net3Latch;
@@ -3329,7 +3365,6 @@ parent = _parent;
    instancekeyb__1_i.Init(this );
    instanceGateOut_i.Init(this );
    instance_plus___2_i.Init(this );
-   instancemidithru__1_i.Init(this );
       int k;
       for (k = 0; k < NPEXCH; k++) {
         if (PExch[k].pfunction){
@@ -3341,7 +3376,6 @@ parent = _parent;
 
 }
   public: void Dispose() {
-   instancemidithru__1_i.Dispose();
    instance_plus___2_i.Dispose();
    instanceGateOut_i.Dispose();
    instancekeyb__1_i.Dispose();
@@ -3354,10 +3388,10 @@ parent = _parent;
 
 }
   public: void dsp (int32buffer  & outlet_SubOscOut,
-int32_t  & outlet_GateOut  ){
+bool  & outlet_GateOut  ){
 int i; /*...*/
 //--------- <nets> -----------//
-    int32_t  net0;
+    bool  net0;
     int32_t  net1;
     int32_t net2;
     int32_t  net3;
@@ -3365,7 +3399,7 @@ int i; /*...*/
     int32_t  net5;
     int32buffer  net6;
     int32_t  net7;
-    int32_t  net8;
+    bool  net8;
 //--------- </nets> ----------//
 //--------- <zero> ----------//
   int32_t UNCONNECTED_OUTPUT;
@@ -3384,7 +3418,6 @@ int i; /*...*/
   instancekeyb__1_i.dsp(net1, net0, UNCONNECTED_OUTPUT, UNCONNECTED_OUTPUT);
   instanceGateOut_i.dsp((net7Latch>0));
   instance_plus___2_i.dsp((net8?(1<<27)-1:0), (net0?(1<<27)-1:0), net7);
-  instancemidithru__1_i.dsp();
 //--------- </object calls> ----------//
 //--------- <net latch copy> ----------//
 net0Latch = net0;
@@ -3406,7 +3439,6 @@ if ( 0 > 0 && dev > 0 && 0 != dev) return;
 if ( 0 > 0 && port > 0 && 0 != port) return;
 instancekeyb__2_i.MidiInHandler(dev, port, status, data1, data2);
 instancekeyb__1_i.MidiInHandler(dev, port, status, data1, data2);
-instancemidithru__1_i.MidiInHandler(dev, port, status, data1, data2);
 }
 }
 }
@@ -4039,7 +4071,7 @@ val = 0;
 }
   public: void Dispose() {
 }
-  public: void dsp (const int32_t  inlet_gate,
+  public: void dsp (const bool  inlet_gate,
 int32_t  & outlet_env,
 int param_a,
 int param_d,
@@ -4583,7 +4615,7 @@ if ( 0 > 0 && port > 0 && 0 != port) return;
 }
 }
 }
-;class instanceLFilter_space_Pitch__{
+;class instanceSubOsc{
   public: // v1
   rootc *parent;
 int32_t lsend;
@@ -4645,6 +4677,146 @@ band = (___SMMUL(freq,high)<<1) + band;// - drive*band*band*band;
 int32_t out1 = low;
 outlet_out = out1;
 
+}
+}
+;class instancemidithru__1{
+  public: // v1
+  rootc *parent;
+int 		flash_cnt=0;
+bool 	flash_state = false;
+const int FLASH_LEN = 0x100;
+  public: void Init(rootc * _parent) {
+parent = _parent;
+if(true) {
+        sysmon_disable_blinker();
+        palSetPadMode(LED2_PORT,LED2_PIN,PAL_MODE_OUTPUT_PUSHPULL);
+}
+flash_cnt = 0;
+flash_state = false;
+}
+  public: void Dispose() {
+}
+  public: void dsp (  ){
+if(true) {
+	if(flash_cnt > 0) flash_cnt--;
+	bool fs = flash_cnt > 0;
+	if(fs!=flash_state) {
+		palWritePad(LED2_PORT,LED2_PIN,fs);
+		flash_state = fs;
+	}
+    }
+}
+void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data1, uint8_t data2) {
+{
+if(dev == MIDI_DEVICE_DIN && port == 1) 
+{
+    uint8_t status_type = status & 0xF0;
+
+    switch (status)
+    { 
+    case MIDI_TIMING_CLOCK: 
+    case MIDI_MEASURE_END:
+    case MIDI_START:
+    case MIDI_CONTINUE:
+    case MIDI_STOP: 
+        {
+            MidiSend1((midi_device_t) MIDI_DEVICE_DIN, 1,status);
+        }
+    break;
+    }
+
+    switch (status_type)
+    {
+    case MIDI_CONTROL_CHANGE:
+    case MIDI_NOTE_OFF:
+    case MIDI_NOTE_ON:
+    case MIDI_POLY_PRESSURE:
+    case MIDI_PITCH_BEND: 
+        {
+            MidiSend3((midi_device_t) MIDI_DEVICE_DIN, 1,status,data1,data2);
+            flash_cnt = FLASH_LEN;
+        }
+    break;
+
+    case MIDI_PROGRAM_CHANGE:
+    case MIDI_CHANNEL_PRESSURE: 
+        {
+            MidiSend2((midi_device_t) MIDI_DEVICE_DIN, 1,status,data1);
+            flash_cnt = FLASH_LEN;
+        }
+    break;
+    }
+}}
+}
+}
+;class instancemidithru__2{
+  public: // v1
+  rootc *parent;
+int 		flash_cnt=0;
+bool 	flash_state = false;
+const int FLASH_LEN = 0x100;
+  public: void Init(rootc * _parent) {
+parent = _parent;
+if(false) {
+        sysmon_disable_blinker();
+        palSetPadMode(LED2_PORT,LED2_PIN,PAL_MODE_OUTPUT_PUSHPULL);
+}
+flash_cnt = 0;
+flash_state = false;
+}
+  public: void Dispose() {
+}
+  public: void dsp (  ){
+if(false) {
+	if(flash_cnt > 0) flash_cnt--;
+	bool fs = flash_cnt > 0;
+	if(fs!=flash_state) {
+		palWritePad(LED2_PORT,LED2_PIN,fs);
+		flash_state = fs;
+	}
+    }
+}
+void MidiInHandler(midi_device_t dev, uint8_t port, uint8_t status, uint8_t data1, uint8_t data2) {
+{
+if(dev == MIDI_DEVICE_DIN && port == 1) 
+{
+    uint8_t status_type = status & 0xF0;
+
+    switch (status)
+    { 
+    case MIDI_TIMING_CLOCK: 
+    case MIDI_MEASURE_END:
+    case MIDI_START:
+    case MIDI_CONTINUE:
+    case MIDI_STOP: 
+        {
+            MidiSend1((midi_device_t) MIDI_DEVICE_USB_DEVICE, 1,status);
+        }
+    break;
+    }
+
+    switch (status_type)
+    {
+    case MIDI_CONTROL_CHANGE:
+    case MIDI_NOTE_OFF:
+    case MIDI_NOTE_ON:
+    case MIDI_POLY_PRESSURE:
+    case MIDI_PITCH_BEND: 
+        {
+            MidiSend3((midi_device_t) MIDI_DEVICE_USB_DEVICE, 1,status,data1,data2);
+            flash_cnt = FLASH_LEN;
+        }
+    break;
+
+    case MIDI_PROGRAM_CHANGE:
+    case MIDI_CHANNEL_PRESSURE: 
+        {
+            MidiSend2((midi_device_t) MIDI_DEVICE_USB_DEVICE, 1,status,data1);
+            flash_cnt = FLASH_LEN;
+        }
+    break;
+    }
+}}
 }
 }
 ;class instanceanalog__3{
@@ -5162,7 +5334,7 @@ if ( 0 > 0 && port > 0 && 0 != port) return;
 }
 }
 }
-;class instanceLFilter_space_Pitch____{
+;class instanceSideCh{
   public: // v1
   rootc *parent;
 int32_t lsend;
@@ -5699,7 +5871,7 @@ if ( 0 > 0 && port > 0 && 0 != port) return;
 }
 }
 }
-;class instanceLFilter_space_Pitch______{
+;class instanceDist{
   public: // v1
   rootc *parent;
 int32_t lsend;
@@ -5728,18 +5900,23 @@ if (((lsend>inlet_v+(1<<19))||(inlet_v>lsend+(1<<19))) && (timer>30)) {
      instance_star___2 instance_star___2_i;
      instancemix__1 instancemix__1_i;
      instanceschmitttrigger__1 instanceschmitttrigger__1_i;
+     instancevca__1 instancevca__1_i;
      instancexfade__1 instancexfade__1_i;
      instance_star___1 instance_star___1_i;
      instanceNoiseGate__1 instanceNoiseGate__1_i;
      instancehp__1 instancehp__1_i;
      instancemix__3 instancemix__3_i;
      instanceout__1 instanceout__1_i;
-     instanceschmitttrigger__2 instanceschmitttrigger__2_i;
      instancexfade__2 instancexfade__2_i;
+     instanceschmitttrigger__2 instanceschmitttrigger__2_i;
+     instancevca__2 instancevca__2_i;
      instancemix__2 instancemix__2_i;
      instancein__1 instancein__1_i;
+     instancec__1 instancec__1_i;
      instancehp__2 instancehp__2_i;
      instancemix__4 instancemix__4_i;
+     instance_dash___1 instance_dash___1_i;
+     instancediv__1 instancediv__1_i;
      instancedial__2 instancedial__2_i;
      instanceNoiseGate__2 instanceNoiseGate__2_i;
      instance_star___3 instance_star___3_i;
@@ -5753,14 +5930,16 @@ if (((lsend>inlet_v+(1<<19))||(inlet_v>lsend+(1<<19))) && (timer>30)) {
      instancead__1 instancead__1_i;
      instanceanalog__2 instanceanalog__2_i;
      instanceAD__to__int__2 instanceAD__to__int__2_i;
-     instanceLFilter_space_Pitch__ instanceLFilter_space_Pitch___i;
+     instanceSubOsc instanceSubOsc_i;
      instancelp__1 instancelp__1_i;
+     instancemidithru__1 instancemidithru__1_i;
+     instancemidithru__2 instancemidithru__2_i;
      instanceanalog__3 instanceanalog__3_i;
      instanceAD__to__int__3 instanceAD__to__int__3_i;
-     instanceLFilter_space_Pitch____ instanceLFilter_space_Pitch_____i;
+     instanceSideCh instanceSideCh_i;
      instanceanalog__4 instanceanalog__4_i;
      instanceAD__to__int__4 instanceAD__to__int__4_i;
-     instanceLFilter_space_Pitch______ instanceLFilter_space_Pitch_______i;
+     instanceDist instanceDist_i;
 /* net latches */
     int32buffer  net0Latch;
     int32buffer  net3Latch;
@@ -5771,14 +5950,17 @@ if (((lsend>inlet_v+(1<<19))||(inlet_v>lsend+(1<<19))) && (timer>30)) {
     int32buffer  net25Latch;
     int32buffer  net26Latch;
     int32_t  net28Latch;
-    int32buffer  net29Latch;
-    int32_t  net33Latch;
+    int32_t  net31Latch;
+    int32_t  net32Latch;
+    int32_t  net34Latch;
+    int32buffer  net36Latch;
+    int32buffer  net37Latch;
 static const int polyIndex = 0;
    static int32_t * GetInitParams(void){
       static const int32_t p[35]= {
       132120576,
       134217728,
-      0,
+      133169152,
       1048576,
       8598323,
       0,
@@ -5786,14 +5968,14 @@ static const int polyIndex = 0;
       -134217728,
       117440512,
       4194304,
-      -134217728,
+      -62914560,
       0,
       134217728,
       0,
       1048576,
       134217728,
-      0,
-      -134217728,
+      134217728,
+      -62914560,
       0,
       134217728,
       0,
@@ -5804,7 +5986,7 @@ static const int polyIndex = 0;
       -134217728,
       117440512,
       4194304,
-      0,
+      83886080,
       -33554432,
       -25165824,
       132120576,
@@ -6147,18 +6329,23 @@ void Init() {
    instance_star___2_i.Init(this );
    instancemix__1_i.Init(this );
    instanceschmitttrigger__1_i.Init(this );
+   instancevca__1_i.Init(this );
    instancexfade__1_i.Init(this );
    instance_star___1_i.Init(this );
    instanceNoiseGate__1_i.Init(this );
    instancehp__1_i.Init(this );
    instancemix__3_i.Init(this );
    instanceout__1_i.Init(this, displayVector[3], displayVector[4] );
-   instanceschmitttrigger__2_i.Init(this );
    instancexfade__2_i.Init(this );
+   instanceschmitttrigger__2_i.Init(this );
+   instancevca__2_i.Init(this );
    instancemix__2_i.Init(this );
    instancein__1_i.Init(this, displayVector[5], displayVector[6] );
+   instancec__1_i.Init(this );
    instancehp__2_i.Init(this );
    instancemix__4_i.Init(this );
+   instance_dash___1_i.Init(this );
+   instancediv__1_i.Init(this );
    instancedial__2_i.Init(this );
    instanceNoiseGate__2_i.Init(this );
    instance_star___3_i.Init(this );
@@ -6172,14 +6359,16 @@ void Init() {
    instancead__1_i.Init(this );
    instanceanalog__2_i.Init(this );
    instanceAD__to__int__2_i.Init(this );
-   instanceLFilter_space_Pitch___i.Init(this );
+   instanceSubOsc_i.Init(this );
    instancelp__1_i.Init(this );
+   instancemidithru__1_i.Init(this );
+   instancemidithru__2_i.Init(this );
    instanceanalog__3_i.Init(this );
    instanceAD__to__int__3_i.Init(this );
-   instanceLFilter_space_Pitch_____i.Init(this );
+   instanceSideCh_i.Init(this );
    instanceanalog__4_i.Init(this );
    instanceAD__to__int__4_i.Init(this );
-   instanceLFilter_space_Pitch_______i.Init(this );
+   instanceDist_i.Init(this );
       int k;
       for (k = 0; k < NPEXCH; k++) {
         if (PExch[k].pfunction){
@@ -6192,14 +6381,16 @@ void Init() {
 
 /* dispose */
 void Dispose() {
-   instanceLFilter_space_Pitch_______i.Dispose();
+   instanceDist_i.Dispose();
    instanceAD__to__int__4_i.Dispose();
    instanceanalog__4_i.Dispose();
-   instanceLFilter_space_Pitch_____i.Dispose();
+   instanceSideCh_i.Dispose();
    instanceAD__to__int__3_i.Dispose();
    instanceanalog__3_i.Dispose();
+   instancemidithru__2_i.Dispose();
+   instancemidithru__1_i.Dispose();
    instancelp__1_i.Dispose();
-   instanceLFilter_space_Pitch___i.Dispose();
+   instanceSubOsc_i.Dispose();
    instanceAD__to__int__2_i.Dispose();
    instanceanalog__2_i.Dispose();
    instancead__1_i.Dispose();
@@ -6213,18 +6404,23 @@ void Dispose() {
    instance_star___3_i.Dispose();
    instanceNoiseGate__2_i.Dispose();
    instancedial__2_i.Dispose();
+   instancediv__1_i.Dispose();
+   instance_dash___1_i.Dispose();
    instancemix__4_i.Dispose();
    instancehp__2_i.Dispose();
+   instancec__1_i.Dispose();
    instancein__1_i.Dispose();
    instancemix__2_i.Dispose();
-   instancexfade__2_i.Dispose();
+   instancevca__2_i.Dispose();
    instanceschmitttrigger__2_i.Dispose();
+   instancexfade__2_i.Dispose();
    instanceout__1_i.Dispose();
    instancemix__3_i.Dispose();
    instancehp__1_i.Dispose();
    instanceNoiseGate__1_i.Dispose();
    instance_star___1_i.Dispose();
    instancexfade__1_i.Dispose();
+   instancevca__1_i.Dispose();
    instanceschmitttrigger__1_i.Dispose();
    instancemix__1_i.Dispose();
    instance_star___2_i.Dispose();
@@ -6259,7 +6455,7 @@ void dsp (void) {
     int32_t  net18;
     int32_t net19;
     int32buffer  net20;
-    int32_t  net21;
+    bool  net21;
     int32buffer  net22;
     int32_t  net23;
     int32buffer  net24;
@@ -6269,9 +6465,14 @@ void dsp (void) {
     int32_t  net28;
     int32buffer  net29;
     int32buffer  net30;
-    int32buffer  net31;
-    int32buffer  net32;
-    int32_t  net33;
+    int32_t  net31;
+    int32_t  net32;
+    int32_t net33;
+    int32_t  net34;
+    int32buffer  net35;
+    int32buffer  net36;
+    int32buffer  net37;
+    int32buffer  net38;
 //--------- </nets> ----------//
 //--------- <zero> ----------//
   int32_t UNCONNECTED_OUTPUT;
@@ -6284,21 +6485,26 @@ void dsp (void) {
   instanceoutconfig__1_i.dsp();
   instanceKickEnv__1_i.dsp(net23);
   instance_star___2_i.dsp(net23, net25Latch, net7);
-  instancemix__1_i.dsp(net29Latch, net6Latch, zerobuffer, net2, PExch[PARAM_INDEX_mix__1_gain1].finalvalue, PExch[PARAM_INDEX_mix__1_gain2].finalvalue);
-  instanceschmitttrigger__1_i.dsp(net7, net31, PExch[PARAM_INDEX_schmitttrigger__1_hysteresis].finalvalue);
-  instancexfade__1_i.dsp(net7, net31, net33Latch, net29);
+  instancemix__1_i.dsp(zerobuffer, net6Latch, net36Latch, net2, PExch[PARAM_INDEX_mix__1_gain1].finalvalue, PExch[PARAM_INDEX_mix__1_gain2].finalvalue);
+  instanceschmitttrigger__1_i.dsp(net7, net29, PExch[PARAM_INDEX_schmitttrigger__1_hysteresis].finalvalue);
+  instancevca__1_i.dsp(net34Latch, net29, net38);
+  instancexfade__1_i.dsp(net7, net38, net31Latch, net36);
   instance_star___1_i.dsp(net23, net26Latch, net8);
   instanceNoiseGate__1_i.dsp(net0Latch, net4);
   instancehp__1_i.dsp(net4, 0 , 0 , net10, PExch[PARAM_INDEX_hp__1_pitch].finalvalue, PExch[PARAM_INDEX_hp__1_reso].finalvalue);
   instancemix__3_i.dsp(net10, zerobuffer, zerobuffer, net25, PExch[PARAM_INDEX_mix__3_gain1].finalvalue, PExch[PARAM_INDEX_mix__3_gain2].finalvalue);
   instanceout__1_i.dsp(net2, net3Latch, displayVector[3], displayVector[4]);
-  instanceschmitttrigger__2_i.dsp(net8, net32, PExch[PARAM_INDEX_schmitttrigger__2_hysteresis].finalvalue);
-  instancexfade__2_i.dsp(net8, net32, net33Latch, net30);
-  instancemix__2_i.dsp(net30, net6Latch, zerobuffer, net3, PExch[PARAM_INDEX_mix__2_gain1].finalvalue, PExch[PARAM_INDEX_mix__2_gain2].finalvalue);
+  instancexfade__2_i.dsp(net8, net37Latch, net31Latch, net35);
+  instanceschmitttrigger__2_i.dsp(net8, net30, PExch[PARAM_INDEX_schmitttrigger__2_hysteresis].finalvalue);
+  instancevca__2_i.dsp(net34Latch, net30, net37);
+  instancemix__2_i.dsp(zerobuffer, net6Latch, net35, net3, PExch[PARAM_INDEX_mix__2_gain1].finalvalue, PExch[PARAM_INDEX_mix__2_gain2].finalvalue);
   instancein__1_i.dsp(net0, net1, displayVector[5], displayVector[6]);
+  instancec__1_i.dsp(net33);
   instancehp__2_i.dsp(net5Latch, 0 , 0 , net11, PExch[PARAM_INDEX_hp__2_pitch].finalvalue, PExch[PARAM_INDEX_hp__2_reso].finalvalue);
   instancemix__4_i.dsp(net11, zerobuffer, zerobuffer, net26, PExch[PARAM_INDEX_mix__4_gain1].finalvalue, PExch[PARAM_INDEX_mix__4_gain2].finalvalue);
-  instancedial__2_i.dsp(net33, PExch[PARAM_INDEX_dial__2_value].finalvalue);
+  instance_dash___1_i.dsp((net33<<21), net32Latch, net34);
+  instancediv__1_i.dsp(net31Latch, net32);
+  instancedial__2_i.dsp(net31, PExch[PARAM_INDEX_dial__2_value].finalvalue);
   instanceNoiseGate__2_i.dsp(net1, net5);
   instance_star___3_i.dsp(net9Latch, net24Latch, net6);
   instanceSubOscillator__1_i.dsp(net20, net21);
@@ -6311,14 +6517,16 @@ void dsp (void) {
   instancead__1_i.dsp(net21, net9, PExch[PARAM_INDEX_ad__1_a].finalvalue, PExch[PARAM_INDEX_ad__1_d].finalvalue, PExch[PARAM_INDEX_ad__1_s].finalvalue, PExch[PARAM_INDEX_ad__1_r].finalvalue);
   instanceanalog__2_i.dsp(net14);
   instanceAD__to__int__2_i.dsp(net14, net15);
-  instanceLFilter_space_Pitch___i.dsp((net15<<21));
+  instanceSubOsc_i.dsp((net15<<21));
   instancelp__1_i.dsp(net27, net28, PExch[PARAM_INDEX_lp__1_pitch].finalvalue, PExch[PARAM_INDEX_lp__1_reso].finalvalue);
+  instancemidithru__1_i.dsp();
+  instancemidithru__2_i.dsp();
   instanceanalog__3_i.dsp(net16);
   instanceAD__to__int__3_i.dsp(net16, net17);
-  instanceLFilter_space_Pitch_____i.dsp((net17<<21));
+  instanceSideCh_i.dsp((net17<<21));
   instanceanalog__4_i.dsp(net18);
   instanceAD__to__int__4_i.dsp(net18, net19);
-  instanceLFilter_space_Pitch_______i.dsp((net19<<21));
+  instanceDist_i.dsp((net19<<21));
 //--------- </object calls> ----------//
 //--------- <net latch copy> ----------//
    for(i=0;i<BUFSIZE;i++)
@@ -6337,9 +6545,13 @@ net9Latch = net9;
    for(i=0;i<BUFSIZE;i++)
       net26Latch[i]=net26[i];
 net28Latch = net28;
+net31Latch = net31;
+net32Latch = net32;
+net34Latch = net34;
    for(i=0;i<BUFSIZE;i++)
-      net29Latch[i]=net29[i];
-net33Latch = net33;
+      net36Latch[i]=net36[i];
+   for(i=0;i<BUFSIZE;i++)
+      net37Latch[i]=net37[i];
 //--------- </net latch copy> ----------//
 }
 
@@ -6354,6 +6566,8 @@ instanceSubOscillator__1_i.MidiInHandler(dev, port, status, data1, data2);
 instanceAD__to__int__1_i.MidiInHandler(dev, port, status, data1, data2);
 instancedial__1_i.MidiInHandler(dev, port, status, data1, data2);
 instanceAD__to__int__2_i.MidiInHandler(dev, port, status, data1, data2);
+instancemidithru__1_i.MidiInHandler(dev, port, status, data1, data2);
+instancemidithru__2_i.MidiInHandler(dev, port, status, data1, data2);
 instanceAD__to__int__3_i.MidiInHandler(dev, port, status, data1, data2);
 instanceAD__to__int__4_i.MidiInHandler(dev, port, status, data1, data2);
 }
@@ -6416,7 +6630,7 @@ extern funcp_t __dtor_array_end;void PatchDispose( ) {
 
 void xpatch_init2(int fwid)
 {
-  if (fwid != 0x3DB31696) {
+  if (fwid != 0xE95BAC96) {
     return;  }
   extern uint32_t _pbss_start;
   extern uint32_t _pbss_end;
@@ -6435,7 +6649,10 @@ void xpatch_init2(int fwid)
   patchMeta.pPExch = &root.PExch[0];
   patchMeta.pDisplayVector = &root.displayVector[0];
   patchMeta.numPEx = 35;
-  patchMeta.patchID = -125100455;
+  patchMeta.patchID = -949650287;
+  extern char _sdram_dyn_start;
+  extern char _sdram_dyn_end;
+  sdram_init(&_sdram_dyn_start,&_sdram_dyn_end);
   root.Init();
   patchMeta.fptr_applyPreset = ApplyPreset;
   patchMeta.fptr_patch_dispose = PatchDispose;

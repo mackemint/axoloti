@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_2" x="504" y="28">
       <params/>
       <attribs>
@@ -9,14 +9,13 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/in/keyb note ch" sha="20ea0a978c6a321329ddb1f8ed21a4110323f2c5" uuid="8cbbc80099dede5dc93d8d0d9b597c4188614de9" name="keyb_1" x="140" y="56">
+   <obj type="midi/in/keyb note" uuid="ac0cd98e6c0373b7be73d25900342a62ebcf5f" name="keyb_1" x="140" y="56">
       <params/>
       <attribs>
-         <spinner attributeName="note" value="37"/>
-         <spinner attributeName="channel" value="9"/>
+         <spinner attributeName="note" value="64"/>
       </attribs>
    </obj>
-   <obj type="env/ahd lin" sha="de09ade5b46ad7c4bbe57ce1bb266f7b77fc2078" uuid="4ed5fd29254747e71db6d1d4caa20a89a41740f0" name="ahd_1" x="350" y="56">
+   <obj type="env/ahd lin" uuid="4ed5fd29254747e71db6d1d4caa20a89a41740f0" name="ahd_1" x="350" y="56">
       <params>
          <frac32.s.map name="a" value="-64.0"/>
          <frac32.s.map name="d" value="7.0"/>
@@ -37,7 +36,6 @@
          <spinner attributeName="value" value="64"/>
       </attribs>
    </obj>
-   <comment type="patch/comment" x="140" y="168" text="Kick drum trigger ch#10"/>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="Threshold" x="630" y="182">
       <params>
          <frac32.u.map name="value" onParent="true" value="64.0"/>
@@ -86,9 +84,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-3</x>
-      <y>267</y>
-      <width>1280</width>
-      <height>773</height>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1040</width>
+      <height>656</height>
    </windowPos>
 </patch-1.0>
