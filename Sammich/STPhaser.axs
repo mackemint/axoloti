@@ -6,12 +6,12 @@
    <obj type="sss/fx/phaserST" uuid="91696cab-4458-4b88-8c2a-fd9258ff280a" name="phaserST_1" x="378" y="14">
       <params>
          <frac32.s.map name="rate" value="12.0"/>
-         <frac32.u.map name="depth" MidiCC="1" value="0.0"/>
+         <frac32.u.map name="depth" value="23.5"/>
          <frac32.u.map name="wet" MidiCC="1" value="0.0"/>
          <frac32.u.map name="dry" MidiCC="2" value="63.99999952316284"/>
          <int32 name="stages" value="4"/>
          <frac32.u.map name="spread" value="22.5"/>
-         <frac32.s.map name="feed" value="58.0"/>
+         <frac32.s.map name="feed" value="44.0"/>
       </params>
       <attribs>
          <combo attributeName="size" selection="1024 (21.33ms)"/>
@@ -35,28 +35,16 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_2" x="126" y="168">
+   <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_1" x="532" y="420">
       <params>
-         <frac32.s.map name="pitch" value="-64.0"/>
+         <frac32.u.map name="amp" value="56.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="630" y="238">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_1" x="126" y="252">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="DRY/WET" x="406" y="434">
       <params>
-         <frac32.s.map name="pitch" value="-46.0"/>
+         <frac32.u.map name="value" onParent="true" MidiCC="8" value="0.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="MIDIIn" x="154" y="378">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="audio/in stereo" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="126" y="448">
-      <params/>
       <attribs/>
    </obj>
    <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="WET" x="812" y="490">
@@ -72,7 +60,7 @@
          <spinner attributeName="value" value="64"/>
       </attribs>
    </obj>
-   <obj type="math/-" uuid="1643d55e6e7ce1c995a5e66db9f54fd969e6c9b7" name="-_1" x="728" y="574">
+   <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="-_1" x="728" y="574">
       <params/>
       <attribs/>
    </obj>
@@ -83,36 +71,13 @@
          <spinner attributeName="cc" value="2"/>
       </attribs>
    </obj>
-   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="LFilter Pitch" x="504" y="742">
-      <params/>
-      <attribs>
-         <spinner attributeName="channel" value="2"/>
-         <spinner attributeName="cc" value="5"/>
-      </attribs>
-   </obj>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_1" x="56" y="770">
-      <params/>
-      <attribs>
-         <combo attributeName="channel" selection="PC0 (ADC1_IN10)"/>
-      </attribs>
-   </obj>
-   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_1" x="210" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="./SHDemux" uuid="5eb3c5ed-82d5-4164-808c-4175adb996d8" name="SHDemux_1" x="308" y="798">
-      <params/>
+   <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_2" x="490" y="602">
+      <params>
+         <frac32.u.map name="amp" value="54.5"/>
+      </params>
       <attribs/>
    </obj>
    <nets>
-      <net>
-         <source obj="sine_1" outlet="wave"/>
-         <dest obj="phaserST_1" inlet="spread"/>
-      </net>
-      <net>
-         <source obj="sine_2" outlet="wave"/>
-         <dest obj="phaserST_1" inlet="depth"/>
-      </net>
       <net>
          <source obj="sine_3" outlet="wave"/>
          <dest obj="phaserST_1" inlet="rate"/>
@@ -134,30 +99,31 @@
          <dest obj="-_1" inlet="in1"/>
       </net>
       <net>
-         <source obj="AD_to_int_1" outlet="Out"/>
-         <dest obj="SHDemux_1" inlet="ADIn"/>
+         <source obj="DRY/WET" outlet="out"/>
+         <dest obj="*c_1" inlet="in"/>
+         <dest obj="*c_2" inlet="in"/>
       </net>
       <net>
-         <source obj="SHDemux_1" outlet="SHOutlet1"/>
-         <dest obj="LFilter Pitch" inlet="v"/>
+         <source obj="*c_1" outlet="out"/>
+         <dest obj="WET" inlet="v"/>
       </net>
       <net>
-         <source obj="InL" outlet="inlet"/>
-         <dest obj="phaserST_1" inlet="inL"/>
+         <source obj="*c_2" outlet="out"/>
+         <dest obj="-_1" inlet="in2"/>
       </net>
       <net>
          <source obj="InR" outlet="inlet"/>
          <dest obj="phaserST_1" inlet="inR"/>
       </net>
       <net>
-         <source obj="MIDIIn" outlet="inlet"/>
-         <dest obj="WET" inlet="v"/>
-         <dest obj="-_1" inlet="in2"/>
+         <source obj="InL" outlet="inlet"/>
+         <dest obj="phaserST_1" inlet="inL"/>
       </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
       <MidiChannel>2</MidiChannel>
+      <HasMidiChannelSelector>true</HasMidiChannelSelector>
       <NPresets>8</NPresets>
       <NPresetEntries>32</NPresetEntries>
       <NModulationSources>8</NModulationSources>
@@ -165,7 +131,7 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>0</x>
+      <x>960</x>
       <y>23</y>
       <width>960</width>
       <height>1052</height>
