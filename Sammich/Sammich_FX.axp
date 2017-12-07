@@ -26,7 +26,7 @@
    <obj type="./4pLPF" uuid="b1b2c518-3b25-4ba6-83e9-4304cebf7495" name="4pLPF_1" x="994" y="14">
       <params>
          <frac32.u.map name="vcf freq" MidiCC="1" value="63.0"/>
-         <frac32.u.map name="vcf res" MidiCC="2" value="33.0"/>
+         <frac32.u.map name="vcf res" MidiCC="2" value="34.0"/>
       </params>
       <attribs/>
    </obj>
@@ -59,7 +59,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_2" x="728" y="42">
       <params>
-         <frac32.u.map name="value" value="57.5"/>
+         <frac32.u.map name="value" value="10.0"/>
       </params>
       <attribs/>
    </obj>
@@ -157,7 +157,7 @@
    </obj>
    <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_1" x="1190" y="238">
       <params>
-         <frac32.u.map name="amp" value="43.0"/>
+         <frac32.u.map name="amp" value="44.0"/>
       </params>
       <attribs/>
    </obj>
@@ -188,11 +188,11 @@
    </obj>
    <obj type="fx/lmnts/reverb" uuid="8027561C-A0B5-4DF8-A10E-3ED1274F2980" name="reverb_1" x="854" y="336">
       <params>
-         <frac32.u.map name="amount" value="47.5"/>
+         <frac32.u.map name="amount" value="64.0"/>
          <frac32.u.map name="time" value="51.0"/>
          <frac32.u.map name="diffusion" value="0.0"/>
-         <frac32.u.map name="gain" value="64.0"/>
-         <frac32.u.map name="lowpass" value="25.5"/>
+         <frac32.u.map name="gain" value="31.0"/>
+         <frac32.u.map name="lowpass" value="33.0"/>
       </params>
       <attribs/>
    </obj>
