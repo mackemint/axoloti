@@ -2,7 +2,7 @@
    <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_2" x="504" y="28">
       <params/>
       <attribs>
-         <spinner attributeName="value" value="64"/>
+         <spinner attributeName="value" value="37"/>
       </attribs>
    </obj>
    <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="-_1" x="630" y="42">
@@ -12,7 +12,7 @@
    <obj type="midi/in/keyb note" uuid="ac0cd98e6c0373b7be73d25900342a62ebcf5f" name="keyb_1" x="140" y="56">
       <params/>
       <attribs>
-         <spinner attributeName="note" value="64"/>
+         <spinner attributeName="note" value="37"/>
       </attribs>
    </obj>
    <obj type="env/ahd lin" uuid="4ed5fd29254747e71db6d1d4caa20a89a41740f0" name="ahd_1" x="350" y="56">
@@ -84,8 +84,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-8</x>
-      <y>-8</y>
+      <x>0</x>
+      <y>23</y>
       <width>1040</width>
       <height>656</height>
    </windowPos>
