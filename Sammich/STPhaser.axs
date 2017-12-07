@@ -7,8 +7,8 @@
       <params>
          <frac32.s.map name="rate" value="12.0"/>
          <frac32.u.map name="depth" value="23.5"/>
-         <frac32.u.map name="wet" MidiCC="1" value="0.0"/>
-         <frac32.u.map name="dry" MidiCC="2" value="63.99999952316284"/>
+         <frac32.u.map name="wet" MidiCC="5" value="0.0"/>
+         <frac32.u.map name="dry" MidiCC="6" value="63.99999952316284"/>
          <int32 name="stages" value="4"/>
          <frac32.u.map name="spread" value="22.5"/>
          <frac32.s.map name="feed" value="44.0"/>
@@ -43,15 +43,15 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="DRY/WET" x="406" y="434">
       <params>
-         <frac32.u.map name="value" onParent="true" MidiCC="8" value="0.0"/>
+         <frac32.u.map name="value" onParent="true" MidiCC="3" value="0.0"/>
       </params>
       <attribs/>
    </obj>
    <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="WET" x="812" y="490">
       <params/>
       <attribs>
-         <spinner attributeName="channel" value="2"/>
-         <spinner attributeName="cc" value="1"/>
+         <spinner attributeName="channel" value="7"/>
+         <spinner attributeName="cc" value="5"/>
       </attribs>
    </obj>
    <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="630" y="560">
@@ -67,8 +67,8 @@
    <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="DRY" x="812" y="574">
       <params/>
       <attribs>
-         <spinner attributeName="channel" value="2"/>
-         <spinner attributeName="cc" value="2"/>
+         <spinner attributeName="channel" value="7"/>
+         <spinner attributeName="cc" value="6"/>
       </attribs>
    </obj>
    <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_2" x="490" y="602">
@@ -112,28 +112,28 @@
          <dest obj="-_1" inlet="in2"/>
       </net>
       <net>
-         <source obj="InR" outlet="inlet"/>
-         <dest obj="phaserST_1" inlet="inR"/>
-      </net>
-      <net>
          <source obj="InL" outlet="inlet"/>
          <dest obj="phaserST_1" inlet="inL"/>
+      </net>
+      <net>
+         <source obj="InR" outlet="inlet"/>
+         <dest obj="phaserST_1" inlet="inR"/>
       </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
-      <MidiChannel>2</MidiChannel>
-      <HasMidiChannelSelector>true</HasMidiChannelSelector>
-      <NPresets>8</NPresets>
+      <MidiChannel>7</MidiChannel>
+      <NPresets>2</NPresets>
       <NPresetEntries>32</NPresetEntries>
-      <NModulationSources>8</NModulationSources>
-      <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+      <NModulationSources>2</NModulationSources>
+      <NModulationTargetsPerSource>2</NModulationTargetsPerSource>
+      <Author></Author>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>960</x>
-      <y>23</y>
+      <x>948</x>
+      <y>392</y>
       <width>960</width>
-      <height>1052</height>
+      <height>668</height>
    </windowPos>
 </patch-1.0>

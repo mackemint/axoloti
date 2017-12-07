@@ -1,7 +1,7 @@
 <patch-1.0 appVersion="1.0.12">
    <comment type="patch/comment" x="476" y="0" text="Kick drum trigger on MIDI ch10"/>
-   <comment type="patch/comment" x="770" y="0" text="Stereo4PoleLPF"/>
-   <comment type="patch/comment" x="994" y="0" text="Distortion"/>
+   <comment type="patch/comment" x="994" y="0" text="Stereo4PoleLPF"/>
+   <comment type="patch/comment" x="1190" y="0" text="Distortion"/>
    <obj type="audio/outconfig" uuid="eace67e3304afaa1bb695b444e9345f2d8adaf00" name="outconfig_1" x="210" y="14">
       <params/>
       <attribs>
@@ -11,7 +11,7 @@
    </obj>
    <obj type="./KickEnv" uuid="cc34afc5-ae84-4c3a-9c4e-8881d346fade" name="KickEnv_1" x="476" y="14">
       <params>
-         <frac32.u.map name="Threshold" MidiCC="75" value="62.0"/>
+         <frac32.u.map name="Threshold" MidiCC="75" value="64.0"/>
       </params>
       <attribs>
          <combo attributeName="midichannel" selection="10"/>
@@ -19,58 +19,55 @@
          <combo attributeName="midiport" selection="omni"/>
       </attribs>
    </obj>
-   <obj type="./4pLPF" uuid="b1b2c518-3b25-4ba6-83e9-4304cebf7495" name="4pLPF_1" x="770" y="14">
+   <obj type="mix/xfade" uuid="375dc91d218e96cdc9cbc7e92adb48f705ef701a" name="xfade_3" x="896" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./4pLPF" uuid="b1b2c518-3b25-4ba6-83e9-4304cebf7495" name="4pLPF_1" x="994" y="14">
       <params>
          <frac32.u.map name="vcf freq" MidiCC="1" value="63.0"/>
-         <frac32.u.map name="vcf res" MidiCC="2" value="0.0"/>
+         <frac32.u.map name="vcf res" MidiCC="2" value="33.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="dist/schmitttrigger" uuid="1de995431cbdc67ce917dc0d48c5f7889adcf449" name="schmitttrigger_1" x="994" y="14">
+   <obj type="dist/schmitttrigger" uuid="1de995431cbdc67ce917dc0d48c5f7889adcf449" name="schmitttrigger_1" x="1190" y="14">
       <params>
          <frac32.u.map name="hysteresis" value="0.5"/>
       </params>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1204" y="14" text="Distortion Dry/Wet"/>
-   <comment type="patch/comment" x="1344" y="14" text="MIDICH2 to avoid conflicts with other controls"/>
-   <obj type="mix/mix 3 sq" uuid="d7b47d5c17ec70f49b38661d48ad251bad22aace" name="mix_2" x="1736" y="14">
+   <comment type="patch/comment" x="1400" y="14" text="Distortion Dry/Wet"/>
+   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_2" x="1736" y="14">
       <params>
          <frac32.u.map name="gain1" value="54.0"/>
-         <frac32.u.map name="gain2" value="63.5"/>
-         <frac32.u.map name="gain3" MidiCC="91" value="19.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1204" y="28">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1400" y="28">
       <params/>
       <attribs/>
    </obj>
-   <obj type="mix/xfade" uuid="375dc91d218e96cdc9cbc7e92adb48f705ef701a" name="xfade_1" x="1288" y="28">
+   <obj type="mix/xfade" uuid="375dc91d218e96cdc9cbc7e92adb48f705ef701a" name="xfade_1" x="1484" y="28">
       <params/>
       <attribs/>
    </obj>
-   <obj type="./STPhaser" uuid="8ba53681-21e4-4b21-9d9a-a77d3cf381a7" name="STPhaser_1" x="1414" y="28">
+   <obj type="./STPhaser" uuid="7581a632-ea17-42da-b04a-27c8f8e0d34d" name="STPhaser_1" x="1582" y="28">
       <params>
          <frac32.u.map name="DRY/WET" MidiCC="3" value="0.0"/>
       </params>
-      <attribs>
-         <combo attributeName="midichannel" selection="2"/>
-         <combo attributeName="mididevice" selection="internal"/>
-         <combo attributeName="midiport" selection="2"/>
-      </attribs>
+      <attribs/>
    </obj>
-   <obj type="fx/lmnts/reverb" uuid="8027561C-A0B5-4DF8-A10E-3ED1274F2980" name="reverb_1" x="1568" y="56">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_2" x="728" y="42">
       <params>
-         <frac32.u.map name="amount" value="64.0"/>
-         <frac32.u.map name="time" value="28.5"/>
-         <frac32.u.map name="diffusion" value="11.0"/>
-         <frac32.u.map name="gain" value="0.0"/>
-         <frac32.u.map name="lowpass" value="15.5"/>
+         <frac32.u.map name="value" value="57.5"/>
       </params>
       <attribs/>
    </obj>
    <comment type="patch/comment" x="280" y="84" text="Preprocessing for input"/>
+   <obj type="mix/xfade" uuid="375dc91d218e96cdc9cbc7e92adb48f705ef701a" name="xfade_4" x="896" y="84">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="./NoiseGate" uuid="e58f60fb2fa79984ffa23afcb800183e221f465c" name="NoiseGate_1" x="182" y="98">
       <params>
          <frac32.u.map name="Pre" value="7.099999904632568"/>
@@ -84,12 +81,12 @@
    </obj>
    <obj type="filter/hp m" uuid="fdba806c3cfd2b7aca3256c733379a06e5811e66" name="hp_1" x="350" y="98">
       <params>
-         <frac32.s.map name="pitch" MidiCC="74" value="-58.0"/>
+         <frac32.s.map name="pitch" MidiCC="74" value="-42.0"/>
          <frac32.u.map name="reso" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="dist/schmitttrigger" uuid="1de995431cbdc67ce917dc0d48c5f7889adcf449" name="schmitttrigger_2" x="994" y="98">
+   <obj type="dist/schmitttrigger" uuid="1de995431cbdc67ce917dc0d48c5f7889adcf449" name="schmitttrigger_2" x="1190" y="98">
       <params>
          <frac32.u.map name="hysteresis" value="0.5"/>
       </params>
@@ -99,27 +96,34 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1204" y="126">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/xfade" uuid="375dc91d218e96cdc9cbc7e92adb48f705ef701a" name="xfade_2" x="1288" y="126">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="476" y="140" text="Side chain has CC#75"/>
-   <comment type="patch/comment" x="770" y="140" text="LPF on CC#1"/>
-   <comment type="patch/comment" x="770" y="154" text="Res on CC#2"/>
-   <comment type="patch/comment" x="1414" y="168" text="Phaser on CC#3"/>
-   <comment type="patch/comment" x="154" y="182" text="Kick drum trigger ch#10"/>
-   <obj type="mix/mix 2 sq" uuid="9b03da12a01f39ecd48d16285e7d10acb8e1267c" name="mix_3" x="546" y="196">
+   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_1" x="1736" y="112">
       <params>
-         <frac32.u.map name="gain1" MidiCC="78" value="0.0"/>
+         <frac32.u.map name="gain1" value="54.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="728" y="126" text="Rev CC#91"/>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1400" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/xfade" uuid="375dc91d218e96cdc9cbc7e92adb48f705ef701a" name="xfade_2" x="1484" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1582" y="126" text="Phaser on CC#3"/>
+   <comment type="patch/comment" x="476" y="140" text="Side chain has CC#75"/>
+   <comment type="patch/comment" x="994" y="140" text="LPF on CC#1"/>
+   <comment type="patch/comment" x="994" y="154" text="Res on CC#2"/>
+   <comment type="patch/comment" x="154" y="182" text="Kick drum trigger ch#10"/>
+   <obj type="mix/mix 2 sq" uuid="9b03da12a01f39ecd48d16285e7d10acb8e1267c" name="mix_3" x="672" y="196">
+      <params>
+         <frac32.u.map name="gain1" MidiCC="78" value="27.5"/>
          <frac32.u.map name="gain2" value="63.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/c 16" uuid="1c7c7c82cd6e3585d9a3feb08b96a440a4e7ea62" name="c_1" x="1022" y="196">
+   <obj type="math/c 16" uuid="1c7c7c82cd6e3585d9a3feb08b96a440a4e7ea62" name="c_1" x="1218" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -131,49 +135,64 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_2" x="742" y="210">
+   <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_2" x="798" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="mix/mix 3 sq" uuid="d7b47d5c17ec70f49b38661d48ad251bad22aace" name="mix_1" x="1736" y="210">
-      <params>
-         <frac32.u.map name="gain1" value="54.0"/>
-         <frac32.u.map name="gain2" value="64.0"/>
-         <frac32.u.map name="gain3" MidiCC="91" value="19.5"/>
-      </params>
+   <comment type="patch/comment" x="1736" y="210" text="Reverb on CC#91"/>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="602" y="224">
+      <params/>
       <attribs/>
    </obj>
-   <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="-_1" x="1106" y="224">
+   <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="-_1" x="1302" y="224">
       <params/>
       <attribs/>
    </obj>
    <obj type="filter/hp m" uuid="fdba806c3cfd2b7aca3256c733379a06e5811e66" name="hp_2" x="350" y="238">
       <params>
-         <frac32.s.map name="pitch" MidiCC="74" value="-58.0"/>
+         <frac32.s.map name="pitch" MidiCC="74" value="-42.0"/>
          <frac32.u.map name="reso" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_1" x="994" y="238">
+   <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_1" x="1190" y="238">
       <params>
          <frac32.u.map name="amp" value="43.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_1" x="742" y="266">
+   <obj type="math/div 8" uuid="a56681ca91ad6724e599a99b975c357a15e8c193" name="div_1" x="476" y="252">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="DryWetDist" x="1106" y="280">
+   <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_1" x="798" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="DryWetDist" x="1302" y="280">
       <params>
          <frac32.u.map name="value" MidiCC="4" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="mix/mix 2 sq" uuid="9b03da12a01f39ecd48d16285e7d10acb8e1267c" name="mix_4" x="546" y="336">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_4" x="602" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2 sq" uuid="9b03da12a01f39ecd48d16285e7d10acb8e1267c" name="mix_4" x="672" y="336">
       <params>
-         <frac32.u.map name="gain1" MidiCC="78" value="0.0"/>
+         <frac32.u.map name="gain1" MidiCC="78" value="27.5"/>
          <frac32.u.map name="gain2" value="63.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="fx/lmnts/reverb" uuid="8027561C-A0B5-4DF8-A10E-3ED1274F2980" name="reverb_1" x="854" y="336">
+      <params>
+         <frac32.u.map name="amount" value="47.5"/>
+         <frac32.u.map name="time" value="51.0"/>
+         <frac32.u.map name="diffusion" value="0.0"/>
+         <frac32.u.map name="gain" value="64.0"/>
+         <frac32.u.map name="lowpass" value="25.5"/>
       </params>
       <attribs/>
    </obj>
@@ -192,10 +211,14 @@
       </params>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1106" y="364" text="Distortion on CC#4"/>
+   <comment type="patch/comment" x="1302" y="364" text="Distortion on CC#4"/>
    <comment type="patch/comment" x="350" y="378" text="HPF has CC#74"/>
    <comment type="patch/comment" x="1204" y="378" text="Sub oscillator section"/>
    <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_3" x="1414" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/div 8" uuid="a56681ca91ad6724e599a99b975c357a15e8c193" name="div_2" x="476" y="392">
       <params/>
       <attribs/>
    </obj>
@@ -215,14 +238,24 @@
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1736" y="406" text="Reverb on CC#91"/>
-   <comment type="patch/comment" x="546" y="476" text="Noise on CC#78"/>
+   <comment type="patch/comment" x="672" y="476" text="Noise on CC#78"/>
+   <obj type="midi/in/keyb mod" uuid="abcd509d15e7d13d5381203fd2b4d0ac6fe57bb3" name="keyb_1" x="392" y="490">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="env/adsr" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="ad_1" x="1106" y="490">
       <params>
          <frac32.s.map name="a" value="-16.0"/>
          <frac32.s.map name="d" value="-12.0"/>
          <frac32.u.map name="s" value="63.0"/>
          <frac32.s.map name="r" value="-13.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="env/ahd" uuid="2139369d6de2ba5ddf76e602d1d25df653ca9eed" name="envahd1" x="532" y="504">
+      <params>
+         <frac32.s.map name="a" value="-25.5"/>
+         <frac32.s.map name="d" value="36.5"/>
       </params>
       <attribs/>
    </obj>
@@ -233,40 +266,20 @@
       </params>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="728" y="532" text="Controls CC 1-4"/>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="1246" y="532">
       <params>
          <frac32.u.map name="value" MidiCC="77" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="476" y="546" text="HPF"/>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_1" x="476" y="560">
-      <params/>
-      <attribs>
-         <combo attributeName="channel" selection="PC0 (ADC1_IN10)"/>
-      </attribs>
-   </obj>
-   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_1" x="616" y="560">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="HPF" x="728" y="560">
-      <params/>
-      <attribs>
-         <spinner attributeName="channel" value="1"/>
-         <spinner attributeName="cc" value="1"/>
-      </attribs>
-   </obj>
    <comment type="patch/comment" x="1246" y="616" text="SUB has CC#77"/>
    <comment type="patch/comment" x="28" y="644" text="Custom MIDIthru device that supports MIDI rt messages"/>
-   <comment type="patch/comment" x="476" y="644" text="SUB vol"/>
    <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="midithru_1" x="28" y="658">
       <params/>
       <attribs>
          <combo attributeName="input" selection="din"/>
          <combo attributeName="output" selection="din"/>
-         <combo attributeName="led" selection="off"/>
+         <combo attributeName="led" selection="on"/>
       </attribs>
    </obj>
    <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="midithru_2" x="168" y="658">
@@ -277,56 +290,76 @@
          <combo attributeName="led" selection="off"/>
       </attribs>
    </obj>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_2" x="476" y="658">
+   <comment type="patch/comment" x="644" y="784" text="Controls CC 1-4"/>
+   <comment type="patch/comment" x="392" y="798" text="HPF"/>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_1" x="392" y="812">
+      <params/>
+      <attribs>
+         <combo attributeName="channel" selection="PC0 (ADC1_IN10)"/>
+      </attribs>
+   </obj>
+   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_1" x="532" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="HPF" x="644" y="812">
+      <params/>
+      <attribs>
+         <spinner attributeName="channel" value="7"/>
+         <spinner attributeName="cc" value="1"/>
+      </attribs>
+   </obj>
+   <comment type="patch/comment" x="392" y="896" text="SUB vol"/>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_2" x="392" y="910">
       <params/>
       <attribs>
          <combo attributeName="channel" selection="PC1 (ADC1_IN11)"/>
       </attribs>
    </obj>
-   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_2" x="616" y="658">
+   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_2" x="532" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="SubOsc" x="728" y="658">
+   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="SubOsc" x="644" y="910">
       <params/>
       <attribs>
-         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="channel" value="7"/>
          <spinner attributeName="cc" value="2"/>
       </attribs>
    </obj>
-   <comment type="patch/comment" x="476" y="742" text="Sidechain"/>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="476" y="756">
+   <comment type="patch/comment" x="392" y="994" text="Sidechain"/>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="392" y="1008">
       <params/>
       <attribs>
          <combo attributeName="channel" selection="PC2 (ADC1_IN12)"/>
       </attribs>
    </obj>
-   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_3" x="616" y="756">
+   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_3" x="532" y="1008">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="SideCh" x="728" y="756">
+   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="SideCh" x="644" y="1008">
       <params/>
       <attribs>
-         <spinner attributeName="channel" value="10"/>
+         <spinner attributeName="channel" value="7"/>
          <spinner attributeName="cc" value="3"/>
       </attribs>
    </obj>
-   <comment type="patch/comment" x="476" y="840" text="Dist"/>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_4" x="476" y="854">
+   <comment type="patch/comment" x="392" y="1092" text="Dist"/>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_4" x="392" y="1106">
       <params/>
       <attribs>
          <combo attributeName="channel" selection="PC3 (ADC1_IN13)"/>
       </attribs>
    </obj>
-   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_4" x="616" y="854">
+   <obj type="./AD_to_int" uuid="34a84ffa-22f7-42fa-851f-6ff304fe4983" name="AD_to_int_4" x="532" y="1106">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="Dist" x="728" y="854">
+   <obj type="midi/intern/cc thin" uuid="fd6026be5e7a856b804776c5d7d4df1a4480795e" name="Dist" x="644" y="1106">
       <params/>
       <attribs>
-         <spinner attributeName="channel" value="1"/>
+         <spinner attributeName="channel" value="7"/>
          <spinner attributeName="cc" value="4"/>
       </attribs>
    </obj>
@@ -357,8 +390,8 @@
       </net>
       <net>
          <source obj="*_3" outlet="result"/>
-         <dest obj="mix_1" inlet="in1"/>
          <dest obj="mix_2" inlet="in1"/>
+         <dest obj="mix_1" inlet="in1"/>
       </net>
       <net>
          <source obj="4pLPF_1" outlet="Filter Out R"/>
@@ -419,9 +452,9 @@
       </net>
       <net>
          <source obj="DryWetDist" outlet="out"/>
+         <dest obj="*c_1" inlet="in"/>
          <dest obj="xfade_1" inlet="c"/>
          <dest obj="xfade_2" inlet="c"/>
-         <dest obj="*c_1" inlet="in"/>
       </net>
       <net>
          <source obj="*c_1" outlet="out"/>
@@ -459,13 +492,11 @@
       </net>
       <net>
          <source obj="STPhaser_1" outlet="OutL"/>
-         <dest obj="mix_2" inlet="in2"/>
-         <dest obj="reverb_1" inlet="l"/>
+         <dest obj="mix_2" inlet="bus_in"/>
       </net>
       <net>
          <source obj="STPhaser_1" outlet="OutR"/>
-         <dest obj="mix_1" inlet="in2"/>
-         <dest obj="reverb_1" inlet="r"/>
+         <dest obj="mix_1" inlet="bus_in"/>
       </net>
       <net>
          <source obj="hp_1" outlet="out"/>
@@ -475,14 +506,6 @@
          <source obj="4pLPF_1" outlet="Filter Out L"/>
          <dest obj="schmitttrigger_1" inlet="in"/>
          <dest obj="xfade_1" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="*_1" outlet="result"/>
-         <dest obj="4pLPF_1" inlet="Filter in R"/>
-      </net>
-      <net>
-         <source obj="*_2" outlet="result"/>
-         <dest obj="4pLPF_1" inlet="filter in L"/>
       </net>
       <net>
          <source obj="AD_to_int_4" outlet="Out"/>
@@ -501,14 +524,6 @@
          <dest obj="HPF" inlet="v"/>
       </net>
       <net>
-         <source obj="uniform_2" outlet="wave"/>
-         <dest obj="mix_4" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="uniform_1" outlet="wave"/>
-         <dest obj="mix_3" inlet="in1"/>
-      </net>
-      <net>
          <source obj="mix_3" outlet="out"/>
          <dest obj="*_2" inlet="b"/>
       </net>
@@ -521,27 +536,84 @@
          <dest obj="mix_4" inlet="bus_in"/>
       </net>
       <net>
-         <source obj="reverb_1" outlet="l"/>
-         <dest obj="mix_2" inlet="in3"/>
+         <source obj="uniform_1" outlet="wave"/>
+         <dest obj="div_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="uniform_2" outlet="wave"/>
+         <dest obj="div_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="keyb_1" outlet="gate"/>
+         <dest obj="envahd1" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="envahd1" outlet="env"/>
+         <dest obj="vca_3" inlet="v"/>
+         <dest obj="vca_4" inlet="v"/>
+      </net>
+      <net>
+         <source obj="div_2" outlet="out"/>
+         <dest obj="vca_4" inlet="a"/>
+      </net>
+      <net>
+         <source obj="div_1" outlet="out"/>
+         <dest obj="vca_3" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_3" outlet="o"/>
+         <dest obj="mix_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="vca_4" outlet="o"/>
+         <dest obj="mix_4" inlet="in1"/>
       </net>
       <net>
          <source obj="reverb_1" outlet="r"/>
-         <dest obj="mix_1" inlet="in3"/>
+         <dest obj="xfade_4" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="reverb_1" outlet="l"/>
+         <dest obj="xfade_3" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="*_2" outlet="result"/>
+         <dest obj="reverb_1" inlet="l"/>
+         <dest obj="xfade_3" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="reverb_1" inlet="r"/>
+         <dest obj="xfade_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="xfade_3" outlet="o"/>
+         <dest obj="4pLPF_1" inlet="filter in L"/>
+      </net>
+      <net>
+         <source obj="xfade_4" outlet="o"/>
+         <dest obj="4pLPF_1" inlet="Filter in R"/>
+      </net>
+      <net>
+         <source obj="dial_2" outlet="out"/>
+         <dest obj="xfade_4" inlet="c"/>
+         <dest obj="xfade_3" inlet="c"/>
       </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
-      <MidiChannel>1</MidiChannel>
+      <MidiChannel>7</MidiChannel>
       <NPresets>8</NPresets>
       <NPresetEntries>32</NPresetEntries>
       <NModulationSources>8</NModulationSources>
       <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+      <Author></Author>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
       <x>-1</x>
       <y>23</y>
-      <width>1920</width>
+      <width>1716</width>
       <height>1053</height>
    </windowPos>
 </patch-1.0>
