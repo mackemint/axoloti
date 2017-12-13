@@ -9,7 +9,7 @@
          <combo attributeName="mode" selection="Stereo"/>
       </attribs>
    </obj>
-   <obj type="./KickEnv" uuid="cc34afc5-ae84-4c3a-9c4e-8881d346fade" name="KickEnv_1" x="476" y="14">
+   <obj type="./KickEnv" uuid="28ff9667-26c1-47c6-b2e1-faaa277a2320" name="SideChainTrigger" x="476" y="14">
       <params>
          <frac32.u.map name="Threshold" MidiCC="75" value="64.0"/>
       </params>
@@ -123,6 +123,7 @@
       </params>
       <attribs/>
    </obj>
+   <comment type="patch/comment" x="798" y="196" text="SideChainEnv"/>
    <obj type="math/c 16" uuid="1c7c7c82cd6e3585d9a3feb08b96a440a4e7ea62" name="c_1" x="1218" y="196">
       <params/>
       <attribs/>
@@ -222,7 +223,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="./SubOscillator" uuid="bbf3ebd8-a568-43c2-8d7a-605df42bb44f" name="SubOscillator_1" x="1106" y="392">
+   <obj type="./SubOscillator" uuid="5ac38f45-1466-4cf8-82f0-9982a9db32ee" name="SubOscillator_1" x="1106" y="392">
       <params/>
       <attribs>
          <combo attributeName="midichannel" selection="7"/>
@@ -274,7 +275,7 @@
    </obj>
    <comment type="patch/comment" x="1246" y="616" text="SUB has CC#77"/>
    <comment type="patch/comment" x="28" y="644" text="Custom MIDIthru device that supports MIDI rt messages"/>
-   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="midithru_1" x="28" y="658">
+   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="Thru_Sammich" x="28" y="658">
       <params/>
       <attribs>
          <combo attributeName="input" selection="din"/>
@@ -282,11 +283,19 @@
          <combo attributeName="led" selection="on"/>
       </attribs>
    </obj>
-   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="midithru_2" x="168" y="658">
+   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="Thru_Caustic" x="168" y="658">
       <params/>
       <attribs>
          <combo attributeName="input" selection="din"/>
          <combo attributeName="output" selection="usb device port 1"/>
+         <combo attributeName="led" selection="off"/>
+      </attribs>
+   </obj>
+   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="Thru_MGB" x="308" y="658">
+      <params/>
+      <attribs>
+         <combo attributeName="input" selection="din"/>
+         <combo attributeName="output" selection="usb host port 1"/>
          <combo attributeName="led" selection="off"/>
       </attribs>
    </obj>
@@ -482,7 +491,7 @@
          <dest obj="xfade_1" inlet="i2"/>
       </net>
       <net>
-         <source obj="KickEnv_1" outlet="outlet_1"/>
+         <source obj="SideChainTrigger" outlet="outlet_1"/>
          <dest obj="*_2" inlet="a"/>
          <dest obj="*_1" inlet="a"/>
       </net>
