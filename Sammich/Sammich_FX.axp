@@ -26,7 +26,7 @@
    <obj type="./4pLPF" uuid="b1b2c518-3b25-4ba6-83e9-4304cebf7495" name="4pLPF_1" x="994" y="14">
       <params>
          <frac32.u.map name="vcf freq" MidiCC="1" value="63.0"/>
-         <frac32.u.map name="vcf res" MidiCC="2" value="32.5"/>
+         <frac32.u.map name="vcf res" MidiCC="2" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -37,12 +37,6 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="1400" y="14" text="Distortion Dry/Wet"/>
-   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_2" x="1736" y="14">
-      <params>
-         <frac32.u.map name="gain1" value="54.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1400" y="28">
       <params/>
       <attribs/>
@@ -81,7 +75,7 @@
    </obj>
    <obj type="filter/hp m" uuid="fdba806c3cfd2b7aca3256c733379a06e5811e66" name="hp_1" x="350" y="98">
       <params>
-         <frac32.s.map name="pitch" MidiCC="74" value="-52.0"/>
+         <frac32.s.map name="pitch" MidiCC="74" value="-9.0"/>
          <frac32.u.map name="reso" value="0.0"/>
       </params>
       <attribs/>
@@ -94,12 +88,6 @@
    </obj>
    <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1862" y="98">
       <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_1" x="1736" y="112">
-      <params>
-         <frac32.u.map name="gain1" value="54.0"/>
-      </params>
       <attribs/>
    </obj>
    <comment type="patch/comment" x="728" y="126" text="Rev CC#91"/>
@@ -140,7 +128,13 @@
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1736" y="210" text="Reverb on CC#91"/>
+   <obj type="mix/mix 2 sq" uuid="9b03da12a01f39ecd48d16285e7d10acb8e1267c" name="mix_2" x="1722" y="210">
+      <params>
+         <frac32.u.map name="gain1" value="54.0"/>
+         <frac32.u.map name="gain2" MidiCC="7" value="60.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="602" y="224">
       <params/>
       <attribs/>
@@ -151,7 +145,7 @@
    </obj>
    <obj type="filter/hp m" uuid="fdba806c3cfd2b7aca3256c733379a06e5811e66" name="hp_2" x="350" y="238">
       <params>
-         <frac32.s.map name="pitch" MidiCC="74" value="-52.0"/>
+         <frac32.s.map name="pitch" MidiCC="74" value="-9.0"/>
          <frac32.u.map name="reso" value="0.0"/>
       </params>
       <attribs/>
@@ -166,13 +160,24 @@
       <params/>
       <attribs/>
    </obj>
+   <comment type="patch/comment" x="924" y="252" text="Reverb on CC#91"/>
    <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_1" x="798" y="266">
       <params/>
       <attribs/>
    </obj>
+   <obj type="fx/lmnts/reverb" uuid="8027561C-A0B5-4DF8-A10E-3ED1274F2980" name="reverb_1" x="924" y="266">
+      <params>
+         <frac32.u.map name="amount" value="64.0"/>
+         <frac32.u.map name="time" value="51.0"/>
+         <frac32.u.map name="diffusion" value="0.0"/>
+         <frac32.u.map name="gain" value="31.0"/>
+         <frac32.u.map name="lowpass" value="33.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="DryWetDist" x="1302" y="280">
       <params>
-         <frac32.u.map name="value" MidiCC="4" value="0.0"/>
+         <frac32.u.map name="value" MidiCC="4" value="60.0"/>
       </params>
       <attribs/>
    </obj>
@@ -187,18 +192,15 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="fx/lmnts/reverb" uuid="8027561C-A0B5-4DF8-A10E-3ED1274F2980" name="reverb_1" x="854" y="336">
-      <params>
-         <frac32.u.map name="amount" value="64.0"/>
-         <frac32.u.map name="time" value="51.0"/>
-         <frac32.u.map name="diffusion" value="0.0"/>
-         <frac32.u.map name="gain" value="31.0"/>
-         <frac32.u.map name="lowpass" value="33.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="noise/uniform" uuid="a3926ef22ae9ac217cd09933d90101848796eb78" name="uniform_2" x="462" y="350">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2 sq" uuid="9b03da12a01f39ecd48d16285e7d10acb8e1267c" name="mix_1" x="1722" y="350">
+      <params>
+         <frac32.u.map name="gain1" value="54.0"/>
+         <frac32.u.map name="gain2" MidiCC="7" value="60.0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="./NoiseGate" uuid="e58f60fb2fa79984ffa23afcb800183e221f465c" name="NoiseGate_2" x="182" y="364">
@@ -269,33 +271,41 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="1246" y="532">
       <params>
-         <frac32.u.map name="value" MidiCC="77" value="49.5"/>
+         <frac32.u.map name="value" MidiCC="77" value="38.5"/>
       </params>
       <attribs/>
    </obj>
    <comment type="patch/comment" x="1246" y="616" text="SUB has CC#77"/>
    <comment type="patch/comment" x="28" y="644" text="Custom MIDIthru device that supports MIDI rt messages"/>
-   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="Thru_Sammich" x="28" y="658">
+   <obj type="a773/midithru_incl_clock" uuid="82b2821e-bacc-4e10-8bcc-d827d6e1206d" name="Thru_Sammich" x="28" y="658">
       <params/>
       <attribs>
          <combo attributeName="input" selection="din"/>
          <combo attributeName="output" selection="din"/>
-         <combo attributeName="led" selection="on"/>
+         <combo attributeName="led" selection="off"/>
       </attribs>
    </obj>
-   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="Thru_Caustic" x="168" y="658">
+   <obj type="a773/midithru_incl_clock" uuid="82b2821e-bacc-4e10-8bcc-d827d6e1206d" name="Thru_Caustic" x="168" y="658">
       <params/>
       <attribs>
          <combo attributeName="input" selection="din"/>
          <combo attributeName="output" selection="usb device port 1"/>
-         <combo attributeName="led" selection="off"/>
+         <combo attributeName="led" selection="on"/>
       </attribs>
    </obj>
-   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="Thru_MGB" x="308" y="658">
+   <obj type="a773/midithru_incl_clock" uuid="82b2821e-bacc-4e10-8bcc-d827d6e1206d" name="Thru_MGB" x="308" y="658">
       <params/>
       <attribs>
          <combo attributeName="input" selection="din"/>
          <combo attributeName="output" selection="usb host port 1"/>
+         <combo attributeName="led" selection="off"/>
+      </attribs>
+   </obj>
+   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="TouchOSC_Sammich" x="448" y="658">
+      <params/>
+      <attribs>
+         <combo attributeName="input" selection="usb device port 1"/>
+         <combo attributeName="output" selection="din"/>
          <combo attributeName="led" selection="off"/>
       </attribs>
    </obj>
@@ -354,7 +364,7 @@
          <spinner attributeName="cc" value="3"/>
       </attribs>
    </obj>
-   <comment type="patch/comment" x="392" y="1092" text="Dist"/>
+   <comment type="patch/comment" x="392" y="1092" text="Volume"/>
    <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_4" x="392" y="1106">
       <params/>
       <attribs>
@@ -501,11 +511,7 @@
       </net>
       <net>
          <source obj="STPhaser_1" outlet="OutL"/>
-         <dest obj="mix_2" inlet="bus_in"/>
-      </net>
-      <net>
-         <source obj="STPhaser_1" outlet="OutR"/>
-         <dest obj="mix_1" inlet="bus_in"/>
+         <dest obj="mix_2" inlet="in2"/>
       </net>
       <net>
          <source obj="hp_1" outlet="out"/>
@@ -608,6 +614,10 @@
          <dest obj="xfade_4" inlet="c"/>
          <dest obj="xfade_3" inlet="c"/>
       </net>
+      <net>
+         <source obj="STPhaser_1" outlet="OutR"/>
+         <dest obj="mix_1" inlet="in2"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -621,7 +631,7 @@
    <windowPos>
       <x>0</x>
       <y>23</y>
-      <width>1716</width>
+      <width>1920</width>
       <height>1053</height>
    </windowPos>
 </patch-1.0>
