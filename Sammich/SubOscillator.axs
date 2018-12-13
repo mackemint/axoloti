@@ -14,7 +14,21 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="SubOscOut" x="602" y="196">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="616" y="196">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="24"/>
+      </attribs>
+   </obj>
+   <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_1" x="728" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="812" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="SubOscOut" x="896" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -25,7 +39,7 @@
    <nets>
       <net>
          <source obj="sine_1" outlet="wave"/>
-         <dest obj="SubOscOut" inlet="outlet"/>
+         <dest obj="*_1" inlet="b"/>
       </net>
       <net>
          <source obj="keyb_2" outlet="gate"/>
@@ -34,6 +48,22 @@
       <net>
          <source obj="keyb_2" outlet="note"/>
          <dest obj="sine_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="keyb_2" outlet="velocity"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="*_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="SubOscOut" inlet="outlet"/>
       </net>
    </nets>
    <settings>
